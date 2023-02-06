@@ -1,7 +1,10 @@
+import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends GetView<LocationController> {
+  HomePage({super.key});
+  final locationController = Get.put(LocationController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +20,9 @@ class HomePage extends StatelessWidget {
             // Column for text and location
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 // header Text
-                Text(
+                const Text(
                   'It All Starts Here',
                   style: TextStyle(
                     fontSize: 22.5,
@@ -27,13 +30,15 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 // reactive widget of the user region
-                Text(
-                  'Salem',
-                  style: TextStyle(fontSize: 12),
+                Obx(
+                  () => Text(
+                    controller.city.value,
+                    style: const TextStyle(fontSize: 12),
+                  ),
                 ),
               ],
             ),
