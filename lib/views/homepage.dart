@@ -76,40 +76,19 @@ class HomePage extends GetView<LocationController> {
               physics: const BouncingScrollPhysics(),
               children: <Widget>[
                 const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 60,
-                ),
+                scrollableNavBar(imagePath: 'assets/Movies.png'),
                 const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 60,
-                ),
+                scrollableNavBar(imagePath: 'assets/Stream.png'),
                 const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 60,
-                ),
+                scrollableNavBar(imagePath: 'assets/Music.png'),
                 const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 60,
-                ),
+                scrollableNavBar(imagePath: 'assets/Comedy.png'),
                 const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 60,
-                ),
+                scrollableNavBar(imagePath: 'assets/Sports.png'),
                 const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 60,
-                ),
+                scrollableNavBar(imagePath: 'assets/Plays.png'),
                 const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 60,
-                ),
+                scrollableNavBar(imagePath: 'assets/SeeAll.png'),
                 const SizedBox(width: 10),
               ],
             ),
@@ -207,4 +186,13 @@ class HomePage extends GetView<LocationController> {
       ),
     );
   }
+}
+
+Widget scrollableNavBar({required String imagePath}) {
+  return Image.asset(
+    imagePath,
+    height: 60,
+    width: 60,
+    fit: BoxFit.fitHeight,
+  );
 }
