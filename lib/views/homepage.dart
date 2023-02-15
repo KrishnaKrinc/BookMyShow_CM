@@ -134,7 +134,7 @@ class HomePage extends GetView<LocationController> {
 
           // Movies List - Scrollable - row
           SizedBox(
-            height: 180,
+            height: 190,
             child: ListView(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
@@ -142,42 +142,42 @@ class HomePage extends GetView<LocationController> {
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
                 Container(
                   color: Colors.red,
-                  width: 105,
+                  width: 110,
                 ),
                 const SizedBox(width: 10),
               ],
