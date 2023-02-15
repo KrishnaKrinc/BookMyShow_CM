@@ -98,7 +98,7 @@ class HomePage extends GetView<LocationController> {
 
           // Recommended and See all row
           Padding(
-            padding: const EdgeInsets.only(left: 15, right: 5),
+            padding: const EdgeInsets.only(left: 15, right: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -108,8 +108,8 @@ class HomePage extends GetView<LocationController> {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 // Text Button for see all option
-                TextButton(
-                    onPressed: () {
+                InkWell(
+                    onTap: () {
                       print('See All');
                     },
                     child: Row(
@@ -117,7 +117,7 @@ class HomePage extends GetView<LocationController> {
                         Text(
                           'See All',
                           style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.normal),
+                              color: Colors.red, fontWeight: FontWeight.w500),
                           textAlign: TextAlign.right,
                         ),
                         Icon(
