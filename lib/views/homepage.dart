@@ -70,7 +70,7 @@ class HomePage extends GetView<LocationController> {
           // Options list - scrollable - row
           const SizedBox(height: 10),
           SizedBox(
-            height: 60,
+            height: 75,
             child: ListView(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
