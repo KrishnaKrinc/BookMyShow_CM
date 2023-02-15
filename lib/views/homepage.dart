@@ -1,4 +1,5 @@
 import 'package:book_my_show/controllers/location_controller.dart';
+import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -74,22 +75,22 @@ class HomePage extends GetView<LocationController> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              children: <Widget>[
-                const SizedBox(width: 10),
-                scrollableNavBar(imagePath: 'assets/Movies.png'),
-                const SizedBox(width: 10),
-                scrollableNavBar(imagePath: 'assets/Stream.png'),
-                const SizedBox(width: 10),
-                scrollableNavBar(imagePath: 'assets/Music.png'),
-                const SizedBox(width: 10),
-                scrollableNavBar(imagePath: 'assets/Comedy.png'),
-                const SizedBox(width: 10),
-                scrollableNavBar(imagePath: 'assets/Sports.png'),
-                const SizedBox(width: 10),
-                scrollableNavBar(imagePath: 'assets/Plays.png'),
-                const SizedBox(width: 10),
-                scrollableNavBar(imagePath: 'assets/SeeAll.png'),
-                const SizedBox(width: 10),
+              children: const <Widget>[
+                SizedBox(width: 10),
+                CustomScrollNavIcons(imagePath: 'assets/Movies.png'),
+                SizedBox(width: 10),
+                CustomScrollNavIcons(imagePath: 'assets/Stream.png'),
+                SizedBox(width: 10),
+                CustomScrollNavIcons(imagePath: 'assets/Music.png'),
+                SizedBox(width: 10),
+                CustomScrollNavIcons(imagePath: 'assets/Comedy.png'),
+                SizedBox(width: 10),
+                CustomScrollNavIcons(imagePath: 'assets/Sports.png'),
+                SizedBox(width: 10),
+                CustomScrollNavIcons(imagePath: 'assets/Plays.png'),
+                SizedBox(width: 10),
+                CustomScrollNavIcons(imagePath: 'assets/SeeAll.png'),
+                SizedBox(width: 10),
               ],
             ),
           ),
@@ -186,13 +187,4 @@ class HomePage extends GetView<LocationController> {
       ),
     );
   }
-}
-
-Widget scrollableNavBar({required String imagePath}) {
-  return Image.asset(
-    imagePath,
-    height: 60,
-    width: 60,
-    fit: BoxFit.fitHeight,
-  );
 }
