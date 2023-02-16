@@ -1,4 +1,5 @@
 import 'package:book_my_show/controllers/location_controller.dart';
+import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -49,19 +50,34 @@ class HomePage extends GetView<LocationController> {
             ),
             //icons
             // search icon
-            const Icon(
-              Icons.search_sharp,
-              size: 26,
+            CustomInkWell(
+              child: const Icon(
+                Icons.search_sharp,
+                size: 26,
+              ),
+              onTap: () {
+                print('Search');
+              },
             ),
             // Notification
-            const Icon(
-              Icons.notifications_none_rounded,
-              size: 26,
+            CustomInkWell(
+              child: const Icon(
+                Icons.notifications_none_rounded,
+                size: 26,
+              ),
+              onTap: () {
+                print('Notification');
+              },
             ),
             // Qr Scanner Icon
-            const Icon(
-              Icons.qr_code_scanner_outlined,
-              size: 26,
+            CustomInkWell(
+              child: const Icon(
+                Icons.qr_code_scanner_outlined,
+                size: 26,
+              ),
+              onTap: () {
+                print('QR code');
+              },
             ),
           ],
         ),
@@ -75,22 +91,57 @@ class HomePage extends GetView<LocationController> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              children: const <Widget>[
-                SizedBox(width: 10),
-                CustomScrollNavIcons(imagePath: 'assets/Movies.png'),
-                SizedBox(width: 10),
-                CustomScrollNavIcons(imagePath: 'assets/Stream.png'),
-                SizedBox(width: 10),
-                CustomScrollNavIcons(imagePath: 'assets/Music.png'),
-                SizedBox(width: 10),
-                CustomScrollNavIcons(imagePath: 'assets/Comedy.png'),
-                SizedBox(width: 10),
-                CustomScrollNavIcons(imagePath: 'assets/Sports.png'),
-                SizedBox(width: 10),
-                CustomScrollNavIcons(imagePath: 'assets/Plays.png'),
-                SizedBox(width: 10),
-                CustomScrollNavIcons(imagePath: 'assets/SeeAll.png'),
-                SizedBox(width: 10),
+              children: <Widget>[
+                const SizedBox(width: 10),
+                CustomScrollNavIcons(
+                  imagePath: 'assets/Movies.png',
+                  onTap: () {
+                    print('Movies');
+                  },
+                ),
+                const SizedBox(width: 10),
+                CustomScrollNavIcons(
+                  imagePath: 'assets/Stream.png',
+                  onTap: () {
+                    print('Stream');
+                  },
+                ),
+                const SizedBox(width: 10),
+                CustomScrollNavIcons(
+                  imagePath: 'assets/Music.png',
+                  onTap: () {
+                    print('Music');
+                  },
+                ),
+                const SizedBox(width: 10),
+                CustomScrollNavIcons(
+                  imagePath: 'assets/Comedy.png',
+                  onTap: () {
+                    print('Comedy');
+                  },
+                ),
+                const SizedBox(width: 10),
+                CustomScrollNavIcons(
+                  imagePath: 'assets/Sports.png',
+                  onTap: () {
+                    print('Sports');
+                  },
+                ),
+                const SizedBox(width: 10),
+                CustomScrollNavIcons(
+                  imagePath: 'assets/Plays.png',
+                  onTap: () {
+                    print('Plays');
+                  },
+                ),
+                const SizedBox(width: 10),
+                CustomScrollNavIcons(
+                  imagePath: 'assets/SeeAll.png',
+                  onTap: () {
+                    print('SeeAll');
+                  },
+                ),
+                const SizedBox(width: 10),
               ],
             ),
           ),
