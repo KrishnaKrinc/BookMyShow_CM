@@ -48,6 +48,6 @@ class LocationController extends GetxController {
     List<Placemark> placemark =
         await placemarkFromCoordinates(position.latitude, position.longitude);
     Placemark place = placemark[0];
-    city.value = '${place.locality}';
+    city.value = '${place.locality}' == 'Salem'? '${place.locality}':'Salem';
   }
 }
