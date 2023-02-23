@@ -1,4 +1,5 @@
 import 'package:book_my_show/controllers/location_controller.dart';
+import 'package:book_my_show/models/custom_widgets/custom_carousel.dart';
 import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
 import 'package:flutter/material.dart';
@@ -94,49 +95,49 @@ class HomePage extends GetView<LocationController> {
               children: <Widget>[
                 const SizedBox(width: 10),
                 CustomScrollNavIcons(
-                  imagePath: 'assets/Movies.png',
+                  imagePath: 'assets/logos/Movies.png',
                   onTap: () {
                     print('Movies');
                   },
                 ),
                 const SizedBox(width: 10),
                 CustomScrollNavIcons(
-                  imagePath: 'assets/Stream.png',
+                  imagePath: 'assets/logos/Stream.png',
                   onTap: () {
                     print('Stream');
                   },
                 ),
                 const SizedBox(width: 10),
                 CustomScrollNavIcons(
-                  imagePath: 'assets/Music.png',
+                  imagePath: 'assets/logos/Music.png',
                   onTap: () {
                     print('Music');
                   },
                 ),
                 const SizedBox(width: 10),
                 CustomScrollNavIcons(
-                  imagePath: 'assets/Comedy.png',
+                  imagePath: 'assets/logos/Comedy.png',
                   onTap: () {
                     print('Comedy');
                   },
                 ),
                 const SizedBox(width: 10),
                 CustomScrollNavIcons(
-                  imagePath: 'assets/Sports.png',
+                  imagePath: 'assets/logos/Sports.png',
                   onTap: () {
                     print('Sports');
                   },
                 ),
                 const SizedBox(width: 10),
                 CustomScrollNavIcons(
-                  imagePath: 'assets/Plays.png',
+                  imagePath: 'assets/logos/Plays.png',
                   onTap: () {
                     print('Plays');
                   },
                 ),
                 const SizedBox(width: 10),
                 CustomScrollNavIcons(
-                  imagePath: 'assets/SeeAll.png',
+                  imagePath: 'assets/logos/SeeAll.png',
                   onTap: () {
                     print('SeeAll');
                   },
@@ -160,6 +161,8 @@ class HomePage extends GetView<LocationController> {
                 ),
                 // Text Button for see all option
                 InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () {
                       print('See All');
                     },
@@ -234,6 +237,10 @@ class HomePage extends GetView<LocationController> {
               ],
             ),
           ),
+
+          // Carousel_Slider
+          const SizedBox(height: 15),
+          CustomCarouselSlider(),
         ],
       ),
     );
