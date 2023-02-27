@@ -83,165 +83,167 @@ class HomePage extends GetView<LocationController> {
           ],
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          // Options list - scrollable - row
-          const SizedBox(height: 10),
-          SizedBox(
-            height: 75,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              children: <Widget>[
-                const SizedBox(width: 10),
-                CustomScrollNavIcons(
-                  imagePath: 'assets/logos/Movies.png',
-                  onTap: () {
-                    print('Movies');
-                  },
-                ),
-                const SizedBox(width: 10),
-                CustomScrollNavIcons(
-                  imagePath: 'assets/logos/Stream.png',
-                  onTap: () {
-                    print('Stream');
-                  },
-                ),
-                const SizedBox(width: 10),
-                CustomScrollNavIcons(
-                  imagePath: 'assets/logos/Music.png',
-                  onTap: () {
-                    print('Music');
-                  },
-                ),
-                const SizedBox(width: 10),
-                CustomScrollNavIcons(
-                  imagePath: 'assets/logos/Comedy.png',
-                  onTap: () {
-                    print('Comedy');
-                  },
-                ),
-                const SizedBox(width: 10),
-                CustomScrollNavIcons(
-                  imagePath: 'assets/logos/Sports.png',
-                  onTap: () {
-                    print('Sports');
-                  },
-                ),
-                const SizedBox(width: 10),
-                CustomScrollNavIcons(
-                  imagePath: 'assets/logos/Plays.png',
-                  onTap: () {
-                    print('Plays');
-                  },
-                ),
-                const SizedBox(width: 10),
-                CustomScrollNavIcons(
-                  imagePath: 'assets/logos/SeeAll.png',
-                  onTap: () {
-                    print('SeeAll');
-                  },
-                ),
-                const SizedBox(width: 10),
-              ],
-            ),
-          ),
-          const SizedBox(height: 15),
-
-          // Recommended and See all row
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                // Recommended Text
-                const Text(
-                  'Recommended Movies',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-                // Text Button for see all option
-                InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            // Options list - scrollable - row
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 75,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                children: <Widget>[
+                  const SizedBox(width: 10),
+                  CustomScrollNavIcons(
+                    imagePath: 'assets/logos/Movies.png',
                     onTap: () {
-                      print('See All');
+                      print('Movies');
                     },
-                    child: Row(
-                      children: const <Widget>[
-                        Text(
-                          'See All',
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.w500),
-                          textAlign: TextAlign.right,
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 8,
-                          color: Colors.red,
-                        ),
-                      ],
-                    )),
-              ],
+                  ),
+                  const SizedBox(width: 10),
+                  CustomScrollNavIcons(
+                    imagePath: 'assets/logos/Stream.png',
+                    onTap: () {
+                      print('Stream');
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CustomScrollNavIcons(
+                    imagePath: 'assets/logos/Music.png',
+                    onTap: () {
+                      print('Music');
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CustomScrollNavIcons(
+                    imagePath: 'assets/logos/Comedy.png',
+                    onTap: () {
+                      print('Comedy');
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CustomScrollNavIcons(
+                    imagePath: 'assets/logos/Sports.png',
+                    onTap: () {
+                      print('Sports');
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CustomScrollNavIcons(
+                    imagePath: 'assets/logos/Plays.png',
+                    onTap: () {
+                      print('Plays');
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  CustomScrollNavIcons(
+                    imagePath: 'assets/logos/SeeAll.png',
+                    onTap: () {
+                      print('SeeAll');
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 15),
+            const SizedBox(height: 15),
 
-          // Movies List - Scrollable - row
-          SizedBox(
-            height: 190,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              children: <Widget>[
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  color: Colors.red,
-                  width: 110,
-                ),
-                const SizedBox(width: 10),
-              ],
+            // Recommended and See all row
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  // Recommended Text
+                  const Text(
+                    'Recommended Movies',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  // Text Button for see all option
+                  InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        print('See All');
+                      },
+                      child: Row(
+                        children: const <Widget>[
+                          Text(
+                            'See All',
+                            style: TextStyle(
+                                color: Colors.red, fontWeight: FontWeight.w500),
+                            textAlign: TextAlign.right,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 8,
+                            color: Colors.red,
+                          ),
+                        ],
+                      )),
+                ],
+              ),
             ),
-          ),
+            const SizedBox(height: 15),
 
-          // Carousel_Slider
-          const SizedBox(height: 15),
-          CustomCarouselSlider(),
-        ],
+            // Movies List - Scrollable - row
+            SizedBox(
+              height: 190,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                children: <Widget>[
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    color: Colors.red,
+                    width: 110,
+                  ),
+                  const SizedBox(width: 10),
+                ],
+              ),
+            ),
+
+            // Carousel_Slider
+            const SizedBox(height: 15),
+            const CustomCarouselSlider(),
+          ],
+        ),
       ),
     );
   }
