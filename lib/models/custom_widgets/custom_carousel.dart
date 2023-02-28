@@ -82,7 +82,10 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
                         left: 15,
                         right: 15,
                       ),
-                      child: CustomCarouselContent(item: item),
+                      child: CustomCarouselContent(
+                        imageList: imageList,
+                        currentIndex: currentIndex,
+                      ),
                     ),
                   )
                   .toList(),
