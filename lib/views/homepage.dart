@@ -242,6 +242,8 @@ class HomePage extends GetView<LocationController> {
             // Carousel_Slider
             const SizedBox(height: 15),
             const CustomCarouselSlider(),
+            const SizedBox(height: 15),
+            const SizedBox(height: 15),
           ],
         ),
       ),
