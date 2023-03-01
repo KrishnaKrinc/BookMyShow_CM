@@ -161,7 +161,7 @@ class HomePage extends GetView<LocationController> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   // Text Button for see all option
-                  InkWell(
+                  InkWell( 
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () {
@@ -242,6 +242,8 @@ class HomePage extends GetView<LocationController> {
             // Carousel_Slider
             const SizedBox(height: 15),
             const CustomCarouselSlider(),
+            const SizedBox(height: 15),
+            const SizedBox(height: 15),
           ],
         ),
       ),
