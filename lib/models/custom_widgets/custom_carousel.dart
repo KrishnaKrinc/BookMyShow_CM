@@ -18,7 +18,9 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
       "time": "3h 0m",
       "genre": "Action",
       "Rated": "18+",
-      "lang": "English"
+      "lang": "English",
+      "discription":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
     },
     {
       "id": 2,
@@ -27,7 +29,9 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
       "time": "2h 30m",
       "genre": "Thriller",
       "Rated": "UA",
-      "lang": "English"
+      "lang": "English",
+      "discription":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
     },
     {
       "id": 3,
@@ -36,7 +40,9 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
       "time": "2h 20m",
       "genre": "Romance",
       "Rated": "18+",
-      "lang": "English"
+      "lang": "English",
+      "discription":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
     },
     {
       "id": 4,
@@ -45,7 +51,9 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
       "time": "1h 49m",
       "genre": "Comedy",
       "Rated": "UA",
-      "lang": "English"
+      "lang": "English",
+      "discription":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
     },
     {
       "id": 5,
@@ -54,7 +62,9 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
       "time": "2h 20m",
       "genre": "Sci-Fi",
       "Rated": "UA",
-      "lang": "English"
+      "lang": "English",
+      "discription":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
     },
   ];
 

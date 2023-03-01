@@ -161,7 +161,7 @@ class HomePage extends GetView<LocationController> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   // Text Button for see all option
-                  InkWell(
+                  InkWell( 
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () {

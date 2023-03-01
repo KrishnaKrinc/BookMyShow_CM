@@ -24,11 +24,12 @@ class CustomCarouselContent extends StatelessWidget {
             ),
             const SizedBox(width: 20),
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                const SizedBox(height: 20),
                 Text(
                   imageList[currentIndex]['mName'],
-                  textAlign: TextAlign.left,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 30,
@@ -37,15 +38,36 @@ class CustomCarouselContent extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Text(
-                  " ${imageList[currentIndex]['time']} • ${imageList[currentIndex]['genre']} • ${imageList[currentIndex]['Rated']}",
-                  textAlign: TextAlign.left,
-                  overflow: TextOverflow.clip,
-                  softWrap: false,
-                  style: const TextStyle(
+                SizedBox(
+                  width: 160,
+                  height: 70,
+                  child: Text(
+                    "${imageList[currentIndex]['time']} • ${imageList[currentIndex]['genre']} • ${imageList[currentIndex]['Rated']}\n${imageList[currentIndex]['lang']}",
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 14,
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.5,
+                      height: 1.5
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 160,
+                  height: 70,
+                  child: Text(
+                    "${imageList[currentIndex]['discription']}",
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
                 ),
               ],
             ),
