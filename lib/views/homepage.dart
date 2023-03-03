@@ -1,6 +1,7 @@
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/models/custom_widgets/custom_carousel.dart';
 import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
+import 'package:book_my_show/models/custom_widgets/custom_posters.dart';
 import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -161,7 +162,7 @@ class HomePage extends GetView<LocationController> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   // Text Button for see all option
-                  InkWell( 
+                  InkWell(
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () {
@@ -188,56 +189,7 @@ class HomePage extends GetView<LocationController> {
             const SizedBox(height: 15),
 
             // Movies List - Scrollable - row
-            SizedBox(
-              height: 190,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                children: <Widget>[
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                ],
-              ),
-            ),
+            const CustomPosters(),
 
             // Carousel_Slider
             const SizedBox(height: 15),
@@ -245,6 +197,94 @@ class HomePage extends GetView<LocationController> {
             const SizedBox(height: 15),
             const SizedBox(height: 15),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        elevation: 50,
+        child: SizedBox(
+          height: 65,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10, bottom: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                InkWell(
+                  onTap: () {},
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset(
+                        'assets/logos/home.png',
+                        height: 26,
+                        width: 26,
+                      ),
+                      const SizedBox(height: 5.5),
+                      const Text(
+                        'Home',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: const <Widget>[
+                          Icon(
+                            Icons.star_rate_rounded,
+                            color: Colors.black54,
+                            size: 11,
+                          ),
+                          SizedBox(width: 8),
+                        ],
+                      ),
+                      const Text(
+                        'LIVE',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: -0.5,
+                          fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(height: 5.5),
+                      const Text(
+                        'Events',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Column(
+                    children: const <Widget>[
+                      Icon(
+                        Icons.person,
+                        color: Colors.black54,
+                        size: 28,
+                      ),
+                      SizedBox(height: 5.5),
+                      Text(
+                        'Profile',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
