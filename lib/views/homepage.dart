@@ -85,6 +85,7 @@ class HomePage extends GetView<LocationController> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
             // Options list - scrollable - row
