@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'BookMyShow',
       home: HomePage(),
     );
   }

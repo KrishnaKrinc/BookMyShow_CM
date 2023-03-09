@@ -1,8 +1,10 @@
 import 'package:book_my_show/controllers/location_controller.dart';
+import 'package:book_my_show/models/custom_widgets/custom_bottomnav.dart';
 import 'package:book_my_show/models/custom_widgets/custom_carousel.dart';
 import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/models/custom_widgets/custom_posters.dart';
 import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
+import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +18,7 @@ class HomePage extends GetView<LocationController> {
       // appbar
       appBar: AppBar(
         toolbarHeight: 65,
-        backgroundColor: const Color.fromARGB(255, 46, 49, 71),
+        backgroundColor: Color_DarkBlue,
         //title row of text and icons
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,13 +176,13 @@ class HomePage extends GetView<LocationController> {
                           Text(
                             'See All',
                             style: TextStyle(
-                                color: Colors.red, fontWeight: FontWeight.w500),
+                                color: Color_Red, fontWeight: FontWeight.w500),
                             textAlign: TextAlign.right,
                           ),
                           Icon(
                             Icons.arrow_forward_ios_rounded,
                             size: 8,
-                            color: Colors.red,
+                            color: Color_Red,
                           ),
                         ],
                       )),
@@ -200,93 +202,10 @@ class HomePage extends GetView<LocationController> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+      bottomNavigationBar: const BottomAppBar(
+        color: Color_White,
         elevation: 50,
-        child: SizedBox(
-          height: 65,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 10, bottom: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/logos/home.png',
-                        height: 26,
-                        width: 26,
-                      ),
-                      const SizedBox(height: 5.5),
-                      const Text(
-                        'Home',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: const <Widget>[
-                          Icon(
-                            Icons.star_rate_rounded,
-                            color: Colors.black54,
-                            size: 11,
-                          ),
-                          SizedBox(width: 8),
-                        ],
-                      ),
-                      const Text(
-                        'LIVE',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: -0.5,
-                          fontSize: 14,
-                        ),
-                      ),
-                      const SizedBox(height: 5.5),
-                      const Text(
-                        'Events',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Column(
-                    children: const <Widget>[
-                      Icon(
-                        Icons.person,
-                        color: Colors.black54,
-                        size: 28,
-                      ),
-                      SizedBox(height: 5.5),
-                      Text(
-                        'Profile',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        child: CustomBottomNav(),
       ),
     );
   }
