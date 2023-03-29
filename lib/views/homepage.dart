@@ -1,7 +1,10 @@
 import 'package:book_my_show/controllers/location_controller.dart';
+import 'package:book_my_show/models/custom_widgets/custom_bottomnav.dart';
 import 'package:book_my_show/models/custom_widgets/custom_carousel.dart';
 import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
+import 'package:book_my_show/models/custom_widgets/custom_posters.dart';
 import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
+import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +18,7 @@ class HomePage extends GetView<LocationController> {
       // appbar
       appBar: AppBar(
         toolbarHeight: 65,
-        backgroundColor: const Color.fromARGB(255, 46, 49, 71),
+        backgroundColor: Color_DarkBlue,
         //title row of text and icons
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,6 +87,7 @@ class HomePage extends GetView<LocationController> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
             // Options list - scrollable - row
@@ -161,7 +165,7 @@ class HomePage extends GetView<LocationController> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   // Text Button for see all option
-                  InkWell( 
+                  InkWell(
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () {
@@ -172,13 +176,13 @@ class HomePage extends GetView<LocationController> {
                           Text(
                             'See All',
                             style: TextStyle(
-                                color: Colors.red, fontWeight: FontWeight.w500),
+                                color: Color_Red, fontWeight: FontWeight.w500),
                             textAlign: TextAlign.right,
                           ),
                           Icon(
                             Icons.arrow_forward_ios_rounded,
                             size: 8,
-                            color: Colors.red,
+                            color: Color_Red,
                           ),
                         ],
                       )),
@@ -188,56 +192,7 @@ class HomePage extends GetView<LocationController> {
             const SizedBox(height: 15),
 
             // Movies List - Scrollable - row
-            SizedBox(
-              height: 190,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                children: <Widget>[
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    color: Colors.red,
-                    width: 110,
-                  ),
-                  const SizedBox(width: 10),
-                ],
-              ),
-            ),
+            const CustomPosters(),
 
             // Carousel_Slider
             const SizedBox(height: 15),
@@ -246,6 +201,11 @@ class HomePage extends GetView<LocationController> {
             const SizedBox(height: 15),
           ],
         ),
+      ),
+      bottomNavigationBar: const BottomAppBar(
+        color: Color_White,
+        elevation: 50,
+        child: CustomBottomNav(),
       ),
     );
   }
