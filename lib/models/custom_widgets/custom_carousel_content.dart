@@ -8,6 +8,8 @@ class CustomCarouselContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: <Widget>[
         Row(
@@ -18,8 +20,8 @@ class CustomCarouselContent extends StatelessWidget {
               child: Image.asset(
                 imageList[currentIndex]['imagePath'],
                 fit: BoxFit.fill,
-                height: 270,
-                width: 178,
+                height: screenHeight/3,
+                width: screenWidth/2.2,
               ),
             ),
             const SizedBox(width: 20),
@@ -39,8 +41,8 @@ class CustomCarouselContent extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 SizedBox(
-                  width: 160,
-                  height: 70,
+                  width: screenWidth/2.5,
+                  height: screenHeight/10,
                   child: Text(
                     "${imageList[currentIndex]['time']} • ${imageList[currentIndex]['genre']} • ${imageList[currentIndex]['Rated']}\n${imageList[currentIndex]['lang']}",
                     maxLines: 3,
@@ -55,8 +57,8 @@ class CustomCarouselContent extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 160,
-                  height: 70,
+                  width: screenWidth/2.5,
+                  height: screenHeight/10,
                   child: Text(
                     "${imageList[currentIndex]['discription']}",
                     maxLines: 3,

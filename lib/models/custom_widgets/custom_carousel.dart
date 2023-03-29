@@ -73,6 +73,8 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Stack(
       children: <Widget>[
         InkWell(
@@ -117,7 +119,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
           ),
         ),
         Positioned(
-          bottom: 10,
+          bottom: 18,
           left: 0,
           right: 0,
           child: Row(

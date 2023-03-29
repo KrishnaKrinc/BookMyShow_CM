@@ -14,10 +14,12 @@ class HomePage extends GetView<LocationController> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       // appbar
       appBar: AppBar(
-        toolbarHeight: 65,
+        toolbarHeight: screenHeight/12,
         backgroundColor: Color_DarkBlue,
         //title row of text and icons
         title: Row(
@@ -93,7 +95,7 @@ class HomePage extends GetView<LocationController> {
             // Options list - scrollable - row
             const SizedBox(height: 10),
             SizedBox(
-              height: 75,
+              height: screenHeight/11,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),

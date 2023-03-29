@@ -6,8 +6,10 @@ class CustomBottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
-          height: 65,
+          height: screenHeight/12,
           child: Padding(
             padding: const EdgeInsets.only(top: 10, bottom: 5),
             child: Row(
