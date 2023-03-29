@@ -15,63 +15,72 @@ class CustomBottomNav extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            InkWell(
-              onTap: () {},
-              child: Column(
-                children: <Widget>[
-                  Image.asset(
-                    'assets/logos/home.png',
-                    height: 26,
-                    width: 26,
-                  ),
-                  const SizedBox(height: 6),
-                  const Text(
-                    'Home',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color_Red,
+            SizedBox(
+              height: screenHeight,
+              width: screenWidth / 3,
+              child: InkWell(
+                onTap: () {},
+                child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/logos/home.png',
+                      height: 26,
+                      width: 26,
                     ),
-                  ),
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    children: const <Widget>[
-                      Icon(
-                        Icons.star_rate_rounded,
-                        color: Color_Black,
-                        size: 11,
+                    const SizedBox(height: 6),
+                    const Text(
+                      'Home',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color_Red,
                       ),
-                      SizedBox(width: 8),
-                    ],
-                  ),
-                  const Text(
-                    'LIVE',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color_Black,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: -0.5,
-                      fontSize: 14,
                     ),
-                  ),
-                  const SizedBox(height: 5.5),
-                  const Text(
-                    'Events',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            Container(
+            SizedBox(
               height: screenHeight,
               width: screenWidth/3,
+              child: InkWell(
+                onTap: () {},
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const <Widget>[
+                        Icon(
+                          Icons.star_rate_rounded,
+                          color: Color_Black,
+                          size: 11,
+                        ),
+                        SizedBox(width: 8),
+                      ],
+                    ),
+                    const Text(
+                      'LIVE',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color_Black,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: -0.5,
+                        fontSize: 14,
+                      ),
+                    ),
+                    const SizedBox(height: 5.5),
+                    const Text(
+                      'Events',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenHeight,
+              width: screenWidth / 3,
               child: InkWell(
                 onTap: () {},
                 child: Column(
