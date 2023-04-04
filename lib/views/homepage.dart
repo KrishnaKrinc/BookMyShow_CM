@@ -1,9 +1,9 @@
 import 'package:book_my_show/controllers/location_controller.dart';
-import 'package:book_my_show/models/custom_widgets/custom_bottomnav.dart';
-import 'package:book_my_show/models/custom_widgets/custom_carousel.dart';
-import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
-import 'package:book_my_show/models/custom_widgets/custom_posters.dart';
-import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_bottomnav.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_carousel.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_posters.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_scroll_navicons.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
