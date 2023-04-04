@@ -1,4 +1,4 @@
-import 'package:book_my_show/models/custom_widgets/custom_carousel_content.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_carousel_content.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -66,6 +66,17 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
       "discription":
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
     },
+    {
+      "id": 6,
+      "imagePath": 'assets/images/SampleImages (3).jpg',
+      "mName": "Test6",
+      "time": "2h 20m",
+      "genre": "Sci-Fi",
+      "Rated": "UA",
+      "lang": "English",
+      "discription":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+    },
   ];
 
   final CarouselController carouselController = CarouselController();
@@ -117,7 +128,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
           ),
         ),
         Positioned(
-          bottom: 10,
+          bottom: 18,
           left: 0,
           right: 0,
           child: Row(

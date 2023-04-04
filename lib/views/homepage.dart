@@ -1,9 +1,9 @@
 import 'package:book_my_show/controllers/location_controller.dart';
-import 'package:book_my_show/models/custom_widgets/custom_bottomnav.dart';
-import 'package:book_my_show/models/custom_widgets/custom_carousel.dart';
-import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
-import 'package:book_my_show/models/custom_widgets/custom_posters.dart';
-import 'package:book_my_show/models/custom_widgets/custom_scroll_navicons.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_bottomnav.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_carousel.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_posters.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_scroll_navicons.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,10 +14,11 @@ class HomePage extends GetView<LocationController> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       // appbar
       appBar: AppBar(
-        toolbarHeight: 65,
+        toolbarHeight: screenHeight/12,
         backgroundColor: Color_DarkBlue,
         //title row of text and icons
         title: Row(
@@ -93,7 +94,7 @@ class HomePage extends GetView<LocationController> {
             // Options list - scrollable - row
             const SizedBox(height: 10),
             SizedBox(
-              height: 75,
+              height: screenHeight/11,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),

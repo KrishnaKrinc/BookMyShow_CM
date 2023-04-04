@@ -1,4 +1,4 @@
-import 'package:book_my_show/models/custom_widgets/custom_inkwell.dart';
+import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 
 class CustomScrollNavIcons extends StatelessWidget {
