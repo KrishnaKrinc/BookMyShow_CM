@@ -16,16 +16,17 @@ class CustomBottomNav extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             SizedBox(
-              height: screenHeight,
               width: screenWidth / 3,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  print("HOME");
+                },
                 child: Column(
                   children: <Widget>[
                     Image.asset(
                       'assets/logos/home.png',
-                      height: 26,
-                      width: 26,
+                      height: 24,
+                      width: 24,
                     ),
                     const SizedBox(height: 6),
                     const Text(
@@ -40,10 +41,11 @@ class CustomBottomNav extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: screenHeight,
-              width: screenWidth/3,
+              width: screenWidth / 3,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  print("LIVE");
+                },
                 child: Column(
                   children: <Widget>[
                     Row(
@@ -79,10 +81,11 @@ class CustomBottomNav extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: screenHeight,
               width: screenWidth / 3,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  print("PROFILE");
+                },
                 child: Column(
                   children: const <Widget>[
                     Icon(
