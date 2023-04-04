@@ -9,7 +9,7 @@ class CustomBottomNav extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: screenHeight / 12,
+      height: 60,
       child: Padding(
         padding: const EdgeInsets.only(top: 10, bottom: 5),
         child: Row(
@@ -25,8 +25,8 @@ class CustomBottomNav extends StatelessWidget {
                   children: <Widget>[
                     Image.asset(
                       'assets/logos/home.png',
-                      height: 24,
-                      width: 24,
+                      height: 20,
+                      width: 20,
                     ),
                     const SizedBox(height: 6),
                     const Text(
@@ -54,7 +54,7 @@ class CustomBottomNav extends StatelessWidget {
                         Icon(
                           Icons.star_rate_rounded,
                           color: Color_Black,
-                          size: 11,
+                          size: 9,
                         ),
                         SizedBox(width: 8),
                       ],
@@ -66,7 +66,7 @@ class CustomBottomNav extends StatelessWidget {
                         color: Color_Black,
                         fontWeight: FontWeight.bold,
                         letterSpacing: -0.5,
-                        fontSize: 14,
+                        fontSize: 12,
                       ),
                     ),
                     const SizedBox(height: 5.5),
@@ -91,9 +91,9 @@ class CustomBottomNav extends StatelessWidget {
                     Icon(
                       Icons.person,
                       color: Color_Black,
-                      size: 28,
+                      size: 24,
                     ),
-                    SizedBox(height: 5.5),
+                    SizedBox(height: 4.5),
                     Text(
                       'Profile',
                       style: TextStyle(

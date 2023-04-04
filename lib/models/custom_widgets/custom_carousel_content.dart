@@ -20,7 +20,7 @@ class CustomCarouselContent extends StatelessWidget {
               child: Image.asset(
                 imageList[currentIndex]['imagePath'],
                 fit: BoxFit.fill,
-                height: screenHeight/3,
+                height: 260,
                 width: screenWidth/2.2,
               ),
             ),
