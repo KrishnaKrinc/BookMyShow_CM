@@ -1,0 +1,64 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "imagePath": "assets/images/SampleImages (1).jpg",
+            "mName": "Test1",
+            "time": "3h 0m",
+            "genre": "Action",
+            "Rated": "18+",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 2,
+            "imagePath": "assets/images/SampleImages (2).jpg",
+            "mName": "Test2",
+            "time": "2h 30m",
+            "genre": "Thriller",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 3,
+            "imagePath": "assets/images/SampleImages (3).jpg",
+            "mName": "Test3",
+            "time": "2h 20m",
+            "genre": "Romance",
+            "Rated": "18+",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 4,
+            "imagePath": "assets/images/SampleImages (4).jpg",
+            "mName": "Test4",
+            "time": "1h 49m",
+            "genre": "Comedy",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 5,
+            "imagePath": "assets/images/SampleImages (5).jpg",
+            "mName": "Test5",
+            "time": "2h 20m",
+            "genre": "Sci-Fi",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 6,
+            "imagePath": "assets/images/SampleImages (3).jpg",
+            "mName": "Test6",
+            "time": "2h 20m",
+            "genre": "Sci-Fi",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        }
+    ]
+}
