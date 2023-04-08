@@ -12,14 +12,19 @@ Widget buildLoader(Size size, Color color) {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'assets/logos/bms_logo.png',
-            width: size.width,
+            'assets/logos/bmsFullLogo.png',
+            width: size.width / 1.2,
             fit: BoxFit.cover,
             height: size.height * 0.12,
           ),
-          const SizedBox(height: 8.0),
+          const SizedBox(height: 15.0),
           const Text(
             'It All Starts Here',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+            ),
           ),
           SizedBox(height: size.height * 0.10),
           const CircularProgressIndicator(

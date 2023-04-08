@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       _movies = data["movies"];
     });
 
-    Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 3), () {
       setState(() {
         _loading = false;
       });
