@@ -9,6 +9,7 @@ import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_posters.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_scroll_navicons.dart';
 import 'package:book_my_show/utils/constants.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,9 @@ class HomePage extends StatefulWidget {
 bool _loading = true;
 
 class _HomePageState extends State<HomePage> {
+  final CarouselController carouselController = CarouselController();
   List _movies = [];
+  int activeCarouselIndex = 0;
 
   @override
   void initState() {
@@ -51,6 +54,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     final Size size = MediaQuery.of(context).size;
     return _loading
         ? buildLoader(size, Colors.red)
@@ -238,7 +242,79 @@ class _HomePageState extends State<HomePage> {
 
                   // Carousel_Slider
                   const SizedBox(height: 15),
-                  CustomCarouselSlider(moviesList: _movies),
+                  _movies.length > 0
+                      ? Stack(
+                          children: <Widget>[
+                            InkWell(
+                              highlightColor: Colors.transparent,
+                              splashColor: Colors.transparent,
+                              onTap: () {
+                                print(activeCarouselIndex);
+                              },
+                              child: Container(
+                                color: const Color.fromARGB(255, 46, 49, 71),
+                                child: CarouselSlider(
+                                  items: _movies.map((e) {
+                                    return customCarouselSlider(
+                                        e, size, 15.0, activeCarouselIndex);
+                                  }).toList(),
+                                  carouselController: carouselController,
+                                  options: CarouselOptions(
+                                    scrollPhysics:
+                                        const BouncingScrollPhysics(),
+                                    autoPlay: true,
+                                    autoPlayInterval:
+                                        const Duration(seconds: 3),
+                                    aspectRatio: 1,
+                                    viewportFraction: 1,
+                                    enableInfiniteScroll: false,
+                                    onPageChanged: (index, reason) {
+                                      setState(() {
+                                        activeCarouselIndex = index;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 18,
+                              left: 0,
+                              right: 0,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: _movies.asMap().entries.map((entry) {
+                                  //print(entry);
+                                  //print(entry.key);
+                                  return GestureDetector(
+                                    onTap: () => carouselController
+                                        .animateToPage(entry.key),
+                                    child: Container(
+                                      width: activeCarouselIndex == entry.key
+                                          ? 10
+                                          : 7,
+                                      height: activeCarouselIndex == entry.key
+                                          ? 10
+                                          : 7,
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 3.0),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color:
+                                              activeCarouselIndex == entry.key
+                                                  ? Colors.white
+                                                  : Colors.grey),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ],
+                        )
+                      : const Center(
+                          child: CircularProgressIndicator(),
+                        ),
                   const SizedBox(height: 15),
                   const SizedBox(height: 15),
                 ],

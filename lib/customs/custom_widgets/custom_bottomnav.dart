@@ -69,7 +69,7 @@ class CustomBottomNav extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
-                    const SizedBox(height: 5.5),
+                    const SizedBox(height: 3),
                     const Text(
                       'Events',
                       style: TextStyle(
@@ -93,7 +93,7 @@ class CustomBottomNav extends StatelessWidget {
                       color: Color_Black,
                       size: 24,
                     ),
-                    SizedBox(height: 4.5),
+                    SizedBox(height: 3),
                     Text(
                       'Profile',
                       style: TextStyle(
