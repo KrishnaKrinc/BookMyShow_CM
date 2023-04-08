@@ -1,89 +1,23 @@
-import 'package:book_my_show/customs/custom_widgets/custom_carousel_content.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CustomCarouselSlider extends StatefulWidget {
-  const CustomCarouselSlider({super.key});
+  final List moviesList;
+  const CustomCarouselSlider({Key? mykey, required this.moviesList})
+      : super(key: mykey);
 
   @override
   State<CustomCarouselSlider> createState() => _CustomCarouselSliderState();
 }
 
 class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
-  static List imageList = [
-    {
-      "id": 1,
-      "imagePath": 'assets/images/SampleImages (1).jpg',
-      "mName": "Test1",
-      "time": "3h 0m",
-      "genre": "Action",
-      "Rated": "18+",
-      "lang": "English",
-      "discription":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
-    },
-    {
-      "id": 2,
-      "imagePath": 'assets/images/SampleImages (2).jpg',
-      "mName": "Test2",
-      "time": "2h 30m",
-      "genre": "Thriller",
-      "Rated": "UA",
-      "lang": "English",
-      "discription":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
-    },
-    {
-      "id": 3,
-      "imagePath": 'assets/images/SampleImages (3).jpg',
-      "mName": "Test3",
-      "time": "2h 20m",
-      "genre": "Romance",
-      "Rated": "18+",
-      "lang": "English",
-      "discription":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
-    },
-    {
-      "id": 4,
-      "imagePath": 'assets/images/SampleImages (4).jpg',
-      "mName": "Test4",
-      "time": "1h 49m",
-      "genre": "Comedy",
-      "Rated": "UA",
-      "lang": "English",
-      "discription":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
-    },
-    {
-      "id": 5,
-      "imagePath": 'assets/images/SampleImages (5).jpg',
-      "mName": "Test5",
-      "time": "2h 20m",
-      "genre": "Sci-Fi",
-      "Rated": "UA",
-      "lang": "English",
-      "discription":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
-    },
-    {
-      "id": 6,
-      "imagePath": 'assets/images/SampleImages (3).jpg',
-      "mName": "Test6",
-      "time": "2h 20m",
-      "genre": "Sci-Fi",
-      "Rated": "UA",
-      "lang": "English",
-      "discription":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
-    },
-  ];
-
   final CarouselController carouselController = CarouselController();
   int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Stack(
       children: <Widget>[
         InkWell(
@@ -95,7 +29,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
           child: Container(
             color: const Color.fromARGB(255, 46, 49, 71),
             child: CarouselSlider(
-              items: imageList
+              items: widget.moviesList
                   .map(
                     (item) => Padding(
                       padding: const EdgeInsets.only(
@@ -103,9 +37,94 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
                         left: 15,
                         right: 15,
                       ),
-                      child: CustomCarouselContent(
-                        imageList: imageList,
-                        currentIndex: currentIndex,
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: Image.asset(
+                                  widget.moviesList[currentIndex]['imagePath'],
+                                  fit: BoxFit.fill,
+                                  height: 260,
+                                  width: screenWidth / 2.2,
+                                ),
+                              ),
+                              const SizedBox(width: 20),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  const SizedBox(height: 20),
+                                  Text(
+                                    widget.moviesList[currentIndex]['mName'],
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 0.5,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  SizedBox(
+                                    width: screenWidth / 2.5,
+                                    height: screenHeight / 10,
+                                    child: Text(
+                                      "${widget.moviesList[currentIndex]['time']} • ${widget.moviesList[currentIndex]['genre']} • ${widget.moviesList[currentIndex]['Rated']}\n${widget.moviesList[currentIndex]['lang']}",
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          letterSpacing: 0.5,
+                                          height: 1.5),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: screenWidth / 2.5,
+                                    height: screenHeight / 10,
+                                    child: Text(
+                                      "${widget.moviesList[currentIndex]['discription']}",
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.5,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          SizedBox(
+                            height: 40,
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red,
+                                surfaceTintColor: Colors.transparent,
+                                elevation: null,
+                              ),
+                              onPressed: () {
+                                print("Buy or Rent $currentIndex");
+                              },
+                              child: const Text(
+                                "Buy or Rent",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  letterSpacing: 0.8,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   )
@@ -133,7 +152,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
           right: 0,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: imageList.asMap().entries.map((entry) {
+            children: widget.moviesList.asMap().entries.map((entry) {
               //print(entry);
               //print(entry.key);
               return GestureDetector(
