@@ -28,6 +28,16 @@ class _HomePageState extends State<HomePage> {
   List _movies = [];
   int activeCarouselIndex = 0;
 
+  final List<dynamic> _scrollNavBar = [
+    ["Movies", "assets/logos/Movies.png"],
+    ["Stream", "assets/logos/Stream.png"],
+    ["Music Shows", "assets/logos/Music.png"],
+    ["Comedy Shows", "assets/logos/Comedy.png"],
+    ["Sports", "assets/logos/Sports.png"],
+    ["Plays", "assets/logos/Plays.png"],
+    ["See All", "assets/logos/SeeAll.png"]
+  ];
+
   @override
   void initState() {
     readJson(); // loading data from .json
@@ -53,7 +63,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     final Size size = MediaQuery.of(context).size;
     return _loading
         ? buildLoader(size, Colors.red)
@@ -135,62 +144,30 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   // Options list - scrollable - row
                   const SizedBox(height: 10),
-                  SizedBox(
-                    height: size.height / 11,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      children: <Widget>[
-                        const SizedBox(width: 10),
-                        CustomScrollNavIcons(
-                          imagePath: 'assets/logos/Movies.png',
-                          onTap: () {
-                            print('Movies');
-                          },
+                  Container(
+                    height: 80,
+                    width: size.width,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        SingleChildScrollView(
+                          physics: const BouncingScrollPhysics(),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: size.height * 0.11,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return itemBuilder(_scrollNavBar, index);
+                                  },
+                                  itemCount: _scrollNavBar.length,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        const SizedBox(width: 10),
-                        CustomScrollNavIcons(
-                          imagePath: 'assets/logos/Stream.png',
-                          onTap: () {
-                            print('Stream');
-                          },
-                        ),
-                        const SizedBox(width: 10),
-                        CustomScrollNavIcons(
-                          imagePath: 'assets/logos/Music.png',
-                          onTap: () {
-                            print('Music');
-                          },
-                        ),
-                        const SizedBox(width: 10),
-                        CustomScrollNavIcons(
-                          imagePath: 'assets/logos/Comedy.png',
-                          onTap: () {
-                            print('Comedy');
-                          },
-                        ),
-                        const SizedBox(width: 10),
-                        CustomScrollNavIcons(
-                          imagePath: 'assets/logos/Sports.png',
-                          onTap: () {
-                            print('Sports');
-                          },
-                        ),
-                        const SizedBox(width: 10),
-                        CustomScrollNavIcons(
-                          imagePath: 'assets/logos/Plays.png',
-                          onTap: () {
-                            print('Plays');
-                          },
-                        ),
-                        const SizedBox(width: 10),
-                        CustomScrollNavIcons(
-                          imagePath: 'assets/logos/SeeAll.png',
-                          onTap: () {
-                            print('SeeAll');
-                          },
-                        ),
-                        const SizedBox(width: 10),
                       ],
                     ),
                   ),
