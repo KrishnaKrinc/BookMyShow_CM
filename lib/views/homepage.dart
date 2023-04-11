@@ -53,14 +53,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
+
     final Size size = MediaQuery.of(context).size;
     return _loading
         ? buildLoader(size, Colors.red)
         : Scaffold(
             // appbar
             appBar: AppBar(
-              toolbarHeight: screenHeight / 12,
+              toolbarHeight: size.height / 12,
               backgroundColor: Color_DarkBlue,
               //title row of text and icons
               title: Row(
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                   // Options list - scrollable - row
                   const SizedBox(height: 10),
                   SizedBox(
-                    height: screenHeight / 11,
+                    height: size.height / 11,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       physics: const BouncingScrollPhysics(),
