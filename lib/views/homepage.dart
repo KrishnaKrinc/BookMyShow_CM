@@ -54,7 +54,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
     final Size size = MediaQuery.of(context).size;
     return _loading
         ? buildLoader(size, Colors.red)
@@ -252,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                                 print(activeCarouselIndex);
                               },
                               child: Container(
-                                color: const Color.fromARGB(255, 46, 49, 71),
+                                color: Color_DarkBlue,
                                 child: CarouselSlider(
                                   items: _movies.map((e) {
                                     return customCarouselSlider(

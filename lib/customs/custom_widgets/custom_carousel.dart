@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
   return SizedBox(
     width: size.width,
-    height: size.height * 0.46,
+    height: 150,
     child: Card(
       margin: EdgeInsets.zero,
       color: Color_DarkBlue,
@@ -16,7 +16,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
               Padding(
                 padding: EdgeInsets.only(top: margin, left: margin + 2.0),
                 child: Container(
-                  height: size.height * 0.305,
+                  height: size.height * 0.32,
                   width: size.width / 2.4,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
@@ -27,7 +27,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
                   ),
                 ),
               ),
-              const SizedBox(width: 16.0),
+              const SizedBox(width: 20.0),
               SizedBox(
                 width: size.width * 0.48,
                 height: size.height * 0.35,
@@ -81,7 +81,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 30),
           SizedBox(
             height: 40,
             width: size.width / 1.1,
