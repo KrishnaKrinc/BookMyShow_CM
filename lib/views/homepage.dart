@@ -7,7 +7,6 @@ import 'package:book_my_show/customs/custom_widgets/custom_bottomnav.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_carousel.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_posters.dart';
-import 'package:book_my_show/customs/custom_widgets/custom_scroll_navicons.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -138,6 +137,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+
+            // Full body part of the Home page
             body: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
