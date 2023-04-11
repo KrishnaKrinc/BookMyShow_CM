@@ -242,7 +242,7 @@ class _HomePageState extends State<HomePage> {
 
                   // Carousel_Slider
                   const SizedBox(height: 15),
-                  _movies.length > 0
+                  _movies.isNotEmpty
                       ? Stack(
                           children: <Widget>[
                             InkWell(
