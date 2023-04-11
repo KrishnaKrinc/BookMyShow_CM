@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                       itemCount: _scrollNavBar.length,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 9),
 
                   // Recommended and See all row
                   Padding(
