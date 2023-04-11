@@ -144,31 +144,15 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   // Options list - scrollable - row
                   const SizedBox(height: 10),
-                  Container(
-                    height: 80,
-                    width: size.width,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        SingleChildScrollView(
-                          physics: const BouncingScrollPhysics(),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: size.height * 0.11,
-                                child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) {
-                                    return itemBuilder(_scrollNavBar, index);
-                                  },
-                                  itemCount: _scrollNavBar.length,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                  SizedBox(
+                    height: 75,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return itemBuilder(_scrollNavBar, index);
+                      },
+                      itemCount: _scrollNavBar.length,
                     ),
                   ),
                   const SizedBox(height: 15),

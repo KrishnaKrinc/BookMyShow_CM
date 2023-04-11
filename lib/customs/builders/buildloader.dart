@@ -38,9 +38,8 @@ Widget buildLoader(Size size, Color color) {
 }
 
 Widget itemBuilder(data, index) {
-  return Container(
-    width: 74,
-    height: 40,
+  return SizedBox(
+    width: 73,
     child: Column(
       children: [
         CustomInkWell(
