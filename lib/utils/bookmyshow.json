@@ -1,0 +1,64 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test1",
+            "time": "3h 0m",
+            "genre": "Action",
+            "Rated": "18+",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 2,
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test2",
+            "time": "2h 30m",
+            "genre": "Thriller",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 3,
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test3",
+            "time": "2h 20m",
+            "genre": "Romance",
+            "Rated": "18+",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 4,
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test4",
+            "time": "1h 49m",
+            "genre": "Comedy",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 5,
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test5",
+            "time": "2h 20m",
+            "genre": "Sci-Fi",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        },
+        {
+            "id": 6,
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test6",
+            "time": "2h 20m",
+            "genre": "Sci-Fi",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+        }
+    ]
+}
