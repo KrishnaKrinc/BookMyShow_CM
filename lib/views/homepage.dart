@@ -201,8 +201,10 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(height: 15),
 
                   // Movies List - Scrollable - row
-                  SizedBox(
-                    height: 190,
+                  Container(
+                    color: Colors.red,
+                    height: 220,
+                    width: size.width,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       physics: const BouncingScrollPhysics(),

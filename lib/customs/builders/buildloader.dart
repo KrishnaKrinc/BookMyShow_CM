@@ -50,13 +50,19 @@ Widget itemBuilder(data, index) {
 }
 
 Widget recommendedBuilder(data, index) {
-  return SizedBox(
-    width: 75,
-    child: CustomInkWell(
-      child: Image.network(
-        data[index]['imagePath'],
-        fit: BoxFit.fill,
+  return Column(
+    children: [
+      SizedBox(
+        width: 110,
+        height: 180,
+        child: CustomInkWell(
+          child: Image.network(
+            data[index]['imagePath'],
+            fit: BoxFit.fill,
+          ),
+        ),
       ),
-    ),
+      Text('Hello'),
+    ],
   );
 }
