@@ -81,7 +81,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
               ),
             ],
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 8),
           SizedBox(
             height: 40,
             width: size.width / 1.1,

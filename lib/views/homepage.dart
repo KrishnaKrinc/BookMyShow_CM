@@ -215,24 +215,29 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {
                                 print(activeCarouselIndex);
                               },
-                              child: CarouselSlider(
-                                items: _movies.map((e) {
-                                  return customCarouselSlider(
-                                      e, size, 15.0, activeCarouselIndex);
-                                }).toList(),
-                                carouselController: carouselController,
-                                options: CarouselOptions(
-                                  scrollPhysics: const BouncingScrollPhysics(),
-                                  autoPlay: true,
-                                  autoPlayInterval: const Duration(seconds: 3),
-                                  aspectRatio: 1,
-                                  viewportFraction: 1,
-                                  enableInfiniteScroll: false,
-                                  onPageChanged: (index, reason) {
-                                    setState(() {
-                                      activeCarouselIndex = index;
-                                    });
-                                  },
+                              child: Container(
+                                color: Color_DarkBlue,
+                                child: CarouselSlider(
+                                  items: _movies.map((e) {
+                                    return customCarouselSlider(
+                                        e, size, 18.0, activeCarouselIndex);
+                                  }).toList(),
+                                  carouselController: carouselController,
+                                  options: CarouselOptions(
+                                    scrollPhysics:
+                                        const BouncingScrollPhysics(),
+                                    autoPlay: true,
+                                    autoPlayInterval:
+                                        const Duration(seconds: 3),
+                                    aspectRatio: 1,
+                                    viewportFraction: 1,
+                                    enableInfiniteScroll: false,
+                                    onPageChanged: (index, reason) {
+                                      setState(() {
+                                        activeCarouselIndex = index;
+                                      });
+                                    },
+                                  ),
                                 ),
                               ),
                             ),
