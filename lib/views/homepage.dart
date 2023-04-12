@@ -28,13 +28,13 @@ class _HomePageState extends State<HomePage> {
   int activeCarouselIndex = 0;
 
   final List<dynamic> _scrollNavBar = [
-    ["Movies", "assets/logos/Movies.png"],
-    ["Stream", "assets/logos/Stream.png"],
-    ["Music Shows", "assets/logos/Music.png"],
-    ["Comedy Shows", "assets/logos/Comedy.png"],
-    ["Sports", "assets/logos/Sports.png"],
-    ["Plays", "assets/logos/Plays.png"],
-    ["See All", "assets/logos/SeeAll.png"]
+    ["assets/logos/Movies.png"],
+    ["assets/logos/Stream.png"],
+    ["assets/logos/Music.png"],
+    ["assets/logos/Comedy.png"],
+    ["assets/logos/Sports.png"],
+    ["assets/logos/Plays.png"],
+    ["assets/logos/SeeAll.png"]
   ];
 
   @override
@@ -168,7 +168,9 @@ class _HomePageState extends State<HomePage> {
                         const Text(
                           'Recommended Movies',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
                         // Text Button for see all option
                         InkWell(
@@ -182,8 +184,9 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   'See All',
                                   style: TextStyle(
-                                      color: Color_Red,
-                                      fontWeight: FontWeight.w500),
+                                    color: Color_Red,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                   textAlign: TextAlign.right,
                                 ),
                                 Icon(
@@ -212,29 +215,24 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {
                                 print(activeCarouselIndex);
                               },
-                              child: Container(
-                                color: Color_DarkBlue,
-                                child: CarouselSlider(
-                                  items: _movies.map((e) {
-                                    return customCarouselSlider(
-                                        e, size, 15.0, activeCarouselIndex);
-                                  }).toList(),
-                                  carouselController: carouselController,
-                                  options: CarouselOptions(
-                                    scrollPhysics:
-                                        const BouncingScrollPhysics(),
-                                    autoPlay: true,
-                                    autoPlayInterval:
-                                        const Duration(seconds: 3),
-                                    aspectRatio: 1,
-                                    viewportFraction: 1,
-                                    enableInfiniteScroll: false,
-                                    onPageChanged: (index, reason) {
-                                      setState(() {
-                                        activeCarouselIndex = index;
-                                      });
-                                    },
-                                  ),
+                              child: CarouselSlider(
+                                items: _movies.map((e) {
+                                  return customCarouselSlider(
+                                      e, size, 15.0, activeCarouselIndex);
+                                }).toList(),
+                                carouselController: carouselController,
+                                options: CarouselOptions(
+                                  scrollPhysics: const BouncingScrollPhysics(),
+                                  autoPlay: true,
+                                  autoPlayInterval: const Duration(seconds: 3),
+                                  aspectRatio: 1,
+                                  viewportFraction: 1,
+                                  enableInfiniteScroll: false,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      activeCarouselIndex = index;
+                                    });
+                                  },
                                 ),
                               ),
                             ),

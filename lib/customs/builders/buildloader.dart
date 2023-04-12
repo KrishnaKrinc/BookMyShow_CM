@@ -43,7 +43,7 @@ Widget itemBuilder(data, index) {
     child: Column(
       children: [
         CustomInkWell(
-          child: Image.asset(data[index][1]),
+          child: Image.asset(data[index][0]),
         ),
       ],
     ),
