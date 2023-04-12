@@ -6,7 +6,6 @@ import 'package:book_my_show/customs/builders/buildloader.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_bottomnav.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_carousel.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
-import 'package:book_my_show/customs/custom_widgets/custom_posters.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -28,13 +27,13 @@ class _HomePageState extends State<HomePage> {
   int activeCarouselIndex = 0;
 
   final List<dynamic> _scrollNavBar = [
-    ["assets/logos/Movies.png"],
-    ["assets/logos/Stream.png"],
-    ["assets/logos/Music.png"],
-    ["assets/logos/Comedy.png"],
-    ["assets/logos/Sports.png"],
-    ["assets/logos/Plays.png"],
-    ["assets/logos/SeeAll.png"]
+    ["Movies", "assets/logos/Movies.png"],
+    ["Stream", "assets/logos/Stream.png"],
+    ["Music", "assets/logos/Music.png"],
+    ["Comedy", "assets/logos/Comedy.png"],
+    ["Sprots", "assets/logos/Sports.png"],
+    ["Plays", "assets/logos/Plays.png"],
+    ["See All", "assets/logos/SeeAll.png"]
   ];
 
   @override
@@ -202,25 +201,39 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(height: 15),
 
                   // Movies List - Scrollable - row
-                  const CustomPosters(),
+                  SizedBox(
+                    height: 190,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return recommendedBuilder(_movies, index);
+                      },
+                      itemCount: _movies.length,
+                    ),
+                  ),
 
                   // Carousel_Slider
                   const SizedBox(height: 15),
                   _movies.isNotEmpty
                       ? Stack(
                           children: <Widget>[
-                            InkWell(
-                              highlightColor: Colors.transparent,
-                              splashColor: Colors.transparent,
+                            CustomInkWell(
                               onTap: () {
                                 print(activeCarouselIndex);
                               },
                               child: Container(
                                 color: Color_DarkBlue,
+                                height: 400,
+                                width: size.width,
                                 child: CarouselSlider(
                                   items: _movies.map((e) {
                                     return customCarouselSlider(
-                                        e, size, 18.0, activeCarouselIndex);
+                                      e,
+                                      size,
+                                      18.0,
+                                      activeCarouselIndex,
+                                    );
                                   }).toList(),
                                   carouselController: carouselController,
                                   options: CarouselOptions(
@@ -242,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Positioned(
-                              bottom: 18,
+                              bottom: 20,
                               left: 0,
                               right: 0,
                               child: Row(

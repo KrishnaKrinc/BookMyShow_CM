@@ -1,64 +1,114 @@
 {
     "movies": [
         {
-            "id": 1,
             "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
             "mName": "Test1",
             "time": "3h 0m",
             "genre": "Action",
             "Rated": "18+",
             "lang": "English",
-            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 9.3,
+            "Votes": 23900
         },
         {
-            "id": 2,
             "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
             "mName": "Test2",
             "time": "2h 30m",
             "genre": "Thriller",
             "Rated": "UA",
             "lang": "English",
-            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 8.9,
+            "Votes": 2087
         },
         {
-            "id": 3,
             "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
             "mName": "Test3",
             "time": "2h 20m",
             "genre": "Romance",
             "Rated": "18+",
             "lang": "English",
-            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 8.4,
+            "Votes": 25789
         },
         {
-            "id": 4,
             "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
             "mName": "Test4",
             "time": "1h 49m",
             "genre": "Comedy",
             "Rated": "UA",
             "lang": "English",
-            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 7.3,
+            "Votes": 5600
         },
         {
-            "id": 5,
             "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
             "mName": "Test5",
             "time": "2h 20m",
             "genre": "Sci-Fi",
             "Rated": "UA",
             "lang": "English",
-            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 7.5,
+            "Votes": 5900
         },
         {
-            "id": 6,
             "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
             "mName": "Test6",
             "time": "2h 20m",
             "genre": "Sci-Fi",
             "Rated": "UA",
             "lang": "English",
-            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis."
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 8.5,
+            "Votes": 2701
+        },
+        {
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test7",
+            "time": "2h 20m",
+            "genre": "Romance",
+            "Rated": "18+",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 8.4,
+            "Votes": 25789
+        },
+        {
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test8",
+            "time": "1h 49m",
+            "genre": "Comedy",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 7.3,
+            "Votes": 5600
+        },
+        {
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test9",
+            "time": "2h 20m",
+            "genre": "Sci-Fi",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 7.5,
+            "Votes": 5900
+        },
+        {
+            "imagePath": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202301/pathaan_3-one_one.jpg?VersionId=_IYF6cL1bc7IPPjjF7Esg29s54aoHuhp",
+            "mName": "Test10",
+            "time": "2h 20m",
+            "genre": "Sci-Fi",
+            "Rated": "UA",
+            "lang": "English",
+            "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ante ut libero eleifend mollis.",
+            "Rating": 8.5,
+            "Votes": 2701
         }
     ]
 }

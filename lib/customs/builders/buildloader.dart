@@ -40,12 +40,23 @@ Widget buildLoader(Size size, Color color) {
 Widget itemBuilder(data, index) {
   return SizedBox(
     width: 73,
-    child: Column(
-      children: [
-        CustomInkWell(
-          child: Image.asset(data[index][0]),
-        ),
-      ],
+    child: CustomInkWell(
+      child: Image.asset(data[index][1]),
+      onTap: () {
+        print(data[index][0]);
+      },
+    ),
+  );
+}
+
+Widget recommendedBuilder(data, index) {
+  return SizedBox(
+    width: 75,
+    child: CustomInkWell(
+      child: Image.network(
+        data[index]['imagePath'],
+        fit: BoxFit.fill,
+      ),
     ),
   );
 }
