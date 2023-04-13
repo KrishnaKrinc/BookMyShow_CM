@@ -198,12 +198,11 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 20),
 
                   // Movies List - Scrollable - row
-                  Container(
-                    color: Colors.red,
-                    height: 220,
+                  SizedBox(
+                    height: 280,
                     width: size.width,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
