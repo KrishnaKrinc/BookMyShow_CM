@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/builders/buildloader.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_bottomnav.dart';
-import 'package:book_my_show/customs/custom_widgets/custom_carousel.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
