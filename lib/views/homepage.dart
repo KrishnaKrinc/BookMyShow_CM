@@ -23,6 +23,7 @@ bool _loading = true;
 class _HomePageState extends State<HomePage> {
   final CarouselController carouselController = CarouselController();
   List _movies = [];
+  List _recommendedMovies = [];
   int activeCarouselIndex = 0;
 
   final List<dynamic> _scrollNavBar = [
@@ -47,6 +48,7 @@ class _HomePageState extends State<HomePage> {
     final data = await json.decode(response);
     setState(() {
       _movies = data["movies"];
+      _recommendedMovies = data["RecommendedMovies"];
     });
 
     Timer(const Duration(seconds: 3), () {
@@ -172,28 +174,50 @@ class _HomePageState extends State<HomePage> {
                         ),
                         // Text Button for see all option
                         InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () {
-                              print('See All');
-                            },
-                            child: Row(
-                              children: const <Widget>[
-                                Text(
-                                  'See All',
-                                  style: TextStyle(
-                                    color: Color_Red,
-                                    fontWeight: FontWeight.w500,
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () {
+                            print('See All');
+                          },
+                          child: _recommendedMovies.length > 8
+                              ? Row(
+                                  children: const <Widget>[
+                                    Text(
+                                      'See All',
+                                      style: TextStyle(
+                                        color: Color_Red,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      textAlign: TextAlign.right,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      size: 8,
+                                      color: Color_Red,
+                                    ),
+                                  ],
+                                )
+                              : Opacity(
+                                  opacity: 0,
+                                  child: Row(
+                                    children: const <Widget>[
+                                      Text(
+                                        'See All',
+                                        style: TextStyle(
+                                          color: Color_Red,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        textAlign: TextAlign.right,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward_ios_rounded,
+                                        size: 8,
+                                        color: Color_Red,
+                                      ),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.right,
                                 ),
-                                Icon(
-                                  Icons.arrow_forward_ios_rounded,
-                                  size: 8,
-                                  color: Color_Red,
-                                ),
-                              ],
-                            )),
+                        ),
                       ],
                     ),
                   ),
@@ -207,9 +231,9 @@ class _HomePageState extends State<HomePage> {
                       scrollDirection: Axis.horizontal,
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
-                        return recommendedBuilder(_movies, index);
+                        return recommendedBuilder(_recommendedMovies, index);
                       },
-                      itemCount: _movies.length,
+                      itemCount: _recommendedMovies.length,
                     ),
                   ),
 
