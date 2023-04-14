@@ -122,7 +122,6 @@ Widget recommendedBuilder(data, index) {
   );
 }
 
-
 Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
   return Stack(
     alignment: AlignmentDirectional.topCenter,
@@ -226,4 +225,3 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
     ],
   );
 }
-
