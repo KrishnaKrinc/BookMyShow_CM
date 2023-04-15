@@ -281,6 +281,7 @@ class _HomePageState extends State<HomePage> {
 
             // Bottom Navigation Bar
             bottomNavigationBar: BottomNavigationBar(
+              elevation: 20,
               items: <BottomNavigationBarItem>[
                 //Home
                 BottomNavigationBarItem(
