@@ -4,7 +4,6 @@ import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 // Splash Screen and Loader
 Widget buildLoader(Size size, Color color) {
   return SafeArea(
@@ -240,15 +239,38 @@ PreferredSizeWidget customAppBar(
       ? AppBar(
           toolbarHeight: size.height / 12,
           backgroundColor: Color_DarkBlue,
-          title: const Text(
-            'Hey!',
-            style: TextStyle(
-              fontSize: 22.5,
-              letterSpacing: 0.8,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        )
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Hi!',
+                    style: TextStyle(
+                      fontSize: 22.5,
+                      letterSpacing: 0.8,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      print('Edit Profile Pressed');
+                    },
+                    child: const Text(
+                      'Edit Profile',
+                      style: TextStyle(
+                        fontSize: 12,
+                        letterSpacing: 0.8,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Icon(Icons.person_pin, size: 35),
+            ],
+          ))
       : AppBar(
           toolbarHeight: size.height / 12,
           backgroundColor: Color_DarkBlue,

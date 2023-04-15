@@ -61,9 +61,12 @@ class _HomePageState extends State<HomePage> {
       });
     }
     if (index == 1) {
-      Navigator.of(context).push(MaterialPageRoute(
+      Navigator.of(context).push(
+        MaterialPageRoute(
           builder: (context) =>
-              EventsPage(locationController: locationController)));
+              EventsPage(locationController: locationController),
+        ),
+      );
     }
   }
 
