@@ -1,7 +1,11 @@
+import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+
+// Splash Screen and Loader
 Widget buildLoader(Size size, Color color) {
   return SafeArea(
     child: Scaffold(
@@ -38,18 +42,7 @@ Widget buildLoader(Size size, Color color) {
   );
 }
 
-Widget itemBuilder(data, index) {
-  return SizedBox(
-    width: 73,
-    child: CustomInkWell(
-      child: Image.asset(data[index][1]),
-      onTap: () {
-        print(data[index][0]);
-      },
-    ),
-  );
-}
-
+// Recommended Movies List Builder
 Widget recommendedBuilder(data, index) {
   double left = index == 0 ? 15 : 10;
   return Padding(
@@ -122,6 +115,20 @@ Widget recommendedBuilder(data, index) {
   );
 }
 
+// Carousell Item Builder
+Widget carouselItemBuilder(data, index) {
+  return SizedBox(
+    width: 73,
+    child: CustomInkWell(
+      child: Image.asset(data[index][1]),
+      onTap: () {
+        print(data[index][0]);
+      },
+    ),
+  );
+}
+
+// Carousel Slider Build
 Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
   return Stack(
     alignment: AlignmentDirectional.topCenter,
@@ -224,4 +231,92 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
       ),
     ],
   );
+}
+
+// Home Appbar
+PreferredSizeWidget customAppBar(
+    Size size, int index, LocationController locationController) {
+  return index == 2
+      ? AppBar(
+          toolbarHeight: size.height / 12,
+          backgroundColor: Color_DarkBlue,
+          title: const Text(
+            'Hey!',
+            style: TextStyle(
+              fontSize: 22.5,
+              letterSpacing: 0.8,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        )
+      : AppBar(
+          toolbarHeight: size.height / 12,
+          backgroundColor: Color_DarkBlue,
+          //title row of text and icons
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              // Column for text and location
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  // header Text
+                  const Text(
+                    'It All Starts Here',
+                    style: TextStyle(
+                      fontSize: 22.5,
+                      letterSpacing: 0.8,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  // reactive widget of the user region
+                  Obx(
+                    () => Text(
+                      locationController.city.value,
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+              const Opacity(
+                opacity: 0.0,
+                child: Icon(Icons.search),
+              ),
+              //icons
+              // search icon
+              CustomInkWell(
+                child: const Icon(
+                  Icons.search_sharp,
+                  size: 26,
+                ),
+                onTap: () {
+                  print('Search');
+                },
+              ),
+              // Notification
+              CustomInkWell(
+                child: const Icon(
+                  Icons.notifications_none_rounded,
+                  size: 26,
+                ),
+                onTap: () {
+                  print('Notification');
+                },
+              ),
+              // Qr Scanner Icon
+              CustomInkWell(
+                child: const Icon(
+                  Icons.qr_code_scanner_outlined,
+                  size: 26,
+                ),
+                onTap: () {
+                  print('QR code');
+                },
+              ),
+            ],
+          ),
+        );
 }
