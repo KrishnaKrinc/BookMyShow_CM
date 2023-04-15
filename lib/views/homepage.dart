@@ -5,6 +5,7 @@ import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/builders/build_function.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
+import 'package:book_my_show/views/eventspage.dart';
 import 'package:book_my_show/views/profilepage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,11 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _activePageIndex = index;
       });
+    }
+    if (index == 1) {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) =>
+              EventsPage(locationController: locationController)));
     }
   }
 
