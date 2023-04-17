@@ -232,6 +232,11 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
   );
 }
 
+// Ad Carousel Slider
+Widget adCarouselImages(e, size, index) {
+  return Image.network(e[index]);
+}
+
 // Home Appbar
 PreferredSizeWidget customAppBar(
     Size size, int index, LocationController locationController) {

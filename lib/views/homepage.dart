@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   //Index of lists
   int _activeCarouselIndex = 0;
+  int _activeAdCarouselIndex = 0;
   int _activePageIndex = 0;
 
   //Required Lists
@@ -41,10 +42,18 @@ class _HomePageState extends State<HomePage> {
     ["Stream", "assets/logos/Stream.png"],
     ["Music", "assets/logos/Music.png"],
     ["Comedy", "assets/logos/Comedy.png"],
-    ["Sprots", "assets/logos/Sports.png"],
+    ["Sports", "assets/logos/Sports.png"],
     ["Plays", "assets/logos/Plays.png"],
     ["See All", "assets/logos/SeeAll.png"]
   ];
+  //Advertisement Carousel Slider List
+  final List<String> _adCarouselImages = [
+    "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    "https://images.unsplash.com/photo-1460881680858-30d872d5b530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+    "https://images.unsplash.com/photo-1514533212735-5df27d970db0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=812&q=80"
+  ];
+
+  // final List<String> _adCarouselImages = [];
 
   // Inital State
   @override
@@ -76,7 +85,7 @@ class _HomePageState extends State<HomePage> {
         await rootBundle.loadString('lib/utils/bookmyshow.json');
     final data = await json.decode(response);
     setState(() {
-      _movies = data["movies"];
+      _movies = data["BuyorRent"];
       _recommendedMovies = data["RecommendedMovies"];
     });
 
@@ -117,7 +126,100 @@ class _HomePageState extends State<HomePage> {
                             itemCount: _scrollNavBar.length,
                           ),
                         ),
-                        const SizedBox(height: 9),
+
+                        // Advertisement Carousel Slider
+                        const SizedBox(height: 15),
+                        _adCarouselImages.isNotEmpty
+                            ? Stack(
+                                children: [
+                                  CarouselSlider(
+                                    items: _adCarouselImages.map(
+                                      (e) {
+                                        return Container(
+                                          width: size.width,
+                                          height: size.height,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: NetworkImage(e),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).toList(),
+                                    options: CarouselOptions(
+                                      viewportFraction: 1,
+                                      autoPlay: true,
+                                      initialPage: 0,
+                                      height: size.height * 0.21,
+                                      scrollDirection: Axis.horizontal,
+                                      onPageChanged: (index, reason) =>
+                                          setState(() =>
+                                              _activeAdCarouselIndex = index),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 15,
+                                    left: 0,
+                                    right: 0,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: _adCarouselImages
+                                          .asMap()
+                                          .entries
+                                          .map((entry) {
+                                        //print(entry);
+                                        //print(entry.key);
+                                        return GestureDetector(
+                                          onTap: () => carouselController
+                                              .animateToPage(entry.key),
+                                          child: Container(
+                                            width: _activeAdCarouselIndex ==
+                                                    entry.key
+                                                ? 7
+                                                : 5,
+                                            height: _activeAdCarouselIndex ==
+                                                    entry.key
+                                                ? 7
+                                                : 5,
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 3.0),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                color: _activeAdCarouselIndex ==
+                                                        entry.key
+                                                    ? Colors.white
+                                                    : Colors.grey),
+                                          ),
+                                        );
+                                      }).toList(),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : const SizedBox(height: 0, width: 0),
+                        const SizedBox(height: 25),
+
+                        // Single Banner Add
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Container(
+                            height: size.height / 10,
+                            width: size.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 30),
 
                         // Recommended and See all row
                         Padding(
@@ -182,7 +284,7 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 15),
 
                         // Movies List - Scrollable - row
                         SizedBox(
@@ -199,8 +301,26 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
 
+                        // The Best events This Week
+
+                        // The ultimate Events List
+
+                        //Stream Ad Above carousel
+                        Container(
+                          height: size.height / 8,
+                          width: size.width,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                              ),
+                              fit: BoxFit.fill,
+                            ),
+                            color: Color_DarkBlue
+                          ),
+                        ),
+
                         // Carousel_Slider
-                        const SizedBox(height: 15),
                         _movies.isNotEmpty
                             ? Stack(
                                 children: <Widget>[
@@ -283,7 +403,20 @@ class _HomePageState extends State<HomePage> {
                                 child: CircularProgressIndicator(),
                               ),
                         const SizedBox(height: 15),
-                        const SizedBox(height: 15),
+                        
+                        //The Best of Live Events
+
+                        // Live Events Scrollable List
+
+                        // Laughter Therapy Scrollable List
+
+                        // Popular Events Scrollable List
+
+                        // Top games and Sports Events Scrollable List
+
+                        //Explore Fun activities Scrollable List
+
+                        //Buzz Scrollable Tiles
                       ],
                     ),
                   ),
