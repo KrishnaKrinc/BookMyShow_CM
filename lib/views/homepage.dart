@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     "https://images.unsplash.com/photo-1514533212735-5df27d970db0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=812&q=80"
   ];
 
-  // final List<String> _adCarouselImages = [];
+  // final List<String> _adCarouselImages = []; // Testing
 
   // Inital State
   @override
@@ -300,8 +300,38 @@ class _HomePageState extends State<HomePage> {
                             itemCount: _recommendedMovies.length,
                           ),
                         ),
+                        const SizedBox(height: 20),
 
                         // The Best events This Week
+                        SizedBox(
+                          width: size.width,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  "The Best Events This Week",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                SizedBox(height: 4.0),
+                                Text(
+                                  "Monday to Sunday, we got you covered",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        // Best Events this Week Content
 
                         // The ultimate Events List
 
@@ -310,14 +340,13 @@ class _HomePageState extends State<HomePage> {
                           height: size.height / 8,
                           width: size.width,
                           decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                                ),
+                                fit: BoxFit.fill,
                               ),
-                              fit: BoxFit.fill,
-                            ),
-                            color: Color_DarkBlue
-                          ),
+                              color: Color_DarkBlue),
                         ),
 
                         // Carousel_Slider
@@ -403,7 +432,7 @@ class _HomePageState extends State<HomePage> {
                                 child: CircularProgressIndicator(),
                               ),
                         const SizedBox(height: 15),
-                        
+
                         //The Best of Live Events
 
                         // Live Events Scrollable List

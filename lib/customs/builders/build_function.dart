@@ -99,7 +99,7 @@ Widget recommendedBuilder(data, index) {
                       ],
                     )),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 8),
               Text(
                 data[index]['mName'],
               ),
