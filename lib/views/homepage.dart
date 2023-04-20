@@ -29,6 +29,8 @@ class _HomePageState extends State<HomePage> {
   //API Feteched Data Lists
   List _movies = [];
   List _recommendedMovies = [];
+  List _bestEventsThisWeek = [];
+  List _ultimateEvents = [];
 
   //Index of lists
   int _activeCarouselIndex = 0;
@@ -87,6 +89,8 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _movies = data["BuyorRent"];
       _recommendedMovies = data["RecommendedMovies"];
+      _bestEventsThisWeek = data["BestEvents"];
+      _ultimateEvents = data["UltimateEvents"];
     });
 
     // Loader with Timer (For Delay)
@@ -332,8 +336,77 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 20),
                         // Best Events this Week Content
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: SizedBox(
+                            height: 350,
+                            width: size.width,
+                            child: gridBuilder(
+                              'The Best events this Week',
+                              0.0,
+                              _bestEventsThisWeek,
+                              size,
+                              200.0,
+                              1.00,
+                              20.0,
+                              20.0,
+                              Axis.horizontal,
+                              const BouncingScrollPhysics(),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 25),
 
                         // The ultimate Events List
+                        SizedBox(
+                          width: size.width,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  "The Ultimate Events List",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                SizedBox(height: 4.0),
+                                Text(
+                                  "Good times outdoor or at home",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        // Ultimate Events Content
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: SizedBox(
+                            height: 280,
+                            width: size.width,
+                            child: gridBuilder(
+                              'The Ultimate Events',
+                              0.0,
+                              _ultimateEvents,
+                              size,
+                              200.0,
+                              1.00,
+                              20.0,
+                              20.0,
+                              Axis.horizontal,
+                              const BouncingScrollPhysics(),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 25),
 
                         //Stream Ad Above carousel
                         Container(
@@ -415,12 +488,13 @@ class _HomePageState extends State<HomePage> {
                                             margin: const EdgeInsets.symmetric(
                                                 horizontal: 3.0),
                                             decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                color: _activeCarouselIndex ==
-                                                        entry.key
-                                                    ? Colors.white
-                                                    : Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: _activeCarouselIndex ==
+                                                      entry.key
+                                                  ? Colors.white
+                                                  : Colors.grey,
+                                            ),
                                           ),
                                         );
                                       }).toList(),

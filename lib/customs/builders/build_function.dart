@@ -347,3 +347,42 @@ PreferredSizeWidget customAppBar(
           ),
         );
 }
+
+Widget gridBuilder(
+  type,
+  rightPadding,
+  data,
+  size,
+  maxCrossAxisExtent,
+  childAspectRatio,
+  crossAxisSpacing,
+  mainAxisSpacing,
+  scrollDirection,
+  physics,
+) {
+  return GridView.builder(
+    primary: true,
+    scrollDirection: scrollDirection,
+    physics: physics,
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      childAspectRatio: childAspectRatio,
+      crossAxisSpacing: crossAxisSpacing,
+      mainAxisSpacing: mainAxisSpacing,
+    ),
+    itemCount: data.length,
+    itemBuilder: (BuildContext context, int index) {
+      return Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              data[index]['url'],
+            ),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+      );
+    },
+  );
+}
