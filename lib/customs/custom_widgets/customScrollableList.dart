@@ -7,7 +7,6 @@ class CustomScrollableListBuilder extends StatelessWidget {
   final type;
   final size;
   final title;
-
   const CustomScrollableListBuilder(
       {super.key, this.data, this.type, this.size, this.title});
 

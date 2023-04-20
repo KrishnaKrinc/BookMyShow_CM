@@ -32,6 +32,12 @@ class _HomePageState extends State<HomePage> {
   List _recommendedMovies = [];
   List _bestEventsThisWeek = [];
   List _ultimateEvents = [];
+  List _liveEvents = [];
+  List _laughterTherapy = [];
+  List _popularEvents = [];
+  List _topGamesEvents = [];
+  List _funActivities = [];
+  List _buzz = [];
 
   //Index of lists
   int _activeCarouselIndex = 0;
@@ -92,6 +98,11 @@ class _HomePageState extends State<HomePage> {
       _recommendedMovies = data["RecommendedMovies"];
       _bestEventsThisWeek = data["BestEvents"];
       _ultimateEvents = data["UltimateEvents"];
+      _liveEvents = data["LiveEvents"];
+      _laughterTherapy = data["LaughterTherapy"];
+      _popularEvents = data["PopularEvents"];
+      _topGamesEvents = data["TopGamesEvents"];
+      _funActivities = data["FunActivities"];
     });
 
     // Loader with Timer (For Delay)
@@ -435,52 +446,44 @@ class _HomePageState extends State<HomePage> {
                               ),
                         const SizedBox(height: 15),
 
-                        //The Best of Live Events
-                        CustomScrollableListBuilder(
-                          type: 'Recommended Movies',
-                          data: _recommendedMovies,
-                          size: size,
-                          title: 'Recommended Movies',
-                        ),
-
                         // Live Events Scrollable List
                         CustomScrollableListBuilder(
-                          type: 'Recommended Movies',
-                          data: _recommendedMovies,
+                          type: 'Live Events',
+                          data: _liveEvents,
                           size: size,
-                          title: 'Recommended Movies',
+                          title: 'Live Events',
                         ),
 
                         // Laughter Therapy Scrollable List
                         CustomScrollableListBuilder(
-                          type: 'Recommended Movies',
-                          data: _recommendedMovies,
+                          type: 'Laughter Therapy',
+                          data: _laughterTherapy,
                           size: size,
-                          title: 'Recommended Movies',
+                          title: 'Laughter Therapy',
                         ),
 
                         // Popular Events Scrollable List
                         CustomScrollableListBuilder(
-                          type: 'Recommended Movies',
-                          data: _recommendedMovies,
+                          type: 'Popular Events',
+                          data: _popularEvents,
                           size: size,
-                          title: 'Recommended Movies',
+                          title: 'Popular Events',
                         ),
 
                         // Top games and Sports Events Scrollable List
                         CustomScrollableListBuilder(
-                          type: 'Recommended Movies',
-                          data: _recommendedMovies,
+                          type: 'Top games and Sports Events',
+                          data: _topGamesEvents,
                           size: size,
-                          title: 'Recommended Movies',
+                          title: 'Top games and Sports Events',
                         ),
 
-                        // Explore Fun activities Scrollable List
+                        // Explore Fun Activities Scrollable List
                         CustomScrollableListBuilder(
-                          type: 'Recommended Movies',
-                          data: _recommendedMovies,
+                          type: 'Explore Fun Activities',
+                          data: _funActivities,
                           size: size,
-                          title: 'Recommended Movies',
+                          title: 'Explore Fun Activities',
                         ),
 
                         // Buzz Scrollable Tiles
