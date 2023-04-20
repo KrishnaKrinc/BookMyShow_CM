@@ -66,7 +66,7 @@ Widget recommendedBuilder(data, index) {
                   ),
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 8),
               Container(
                 height: 25,
                 width: 125,
@@ -75,31 +75,32 @@ Widget recommendedBuilder(data, index) {
                   color: Colors.grey[300],
                 ),
                 child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.star_rate_rounded,
-                              color: Colors.red,
-                              size: 16,
-                            ),
-                            Text(
-                              '${data[index]['Rating']}',
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          '${formatNumber(data[index]['Votes'])} votes',
-                          style: const TextStyle(fontSize: 12),
-                        ),
-                      ],
-                    )),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.star_rate_rounded,
+                            color: Colors.red,
+                            size: 16,
+                          ),
+                          Text(
+                            '${data[index]['Rating']}',
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        '${formatNumber(data[index]['Votes'])} votes',
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
               Text(
                 data[index]['mName'],
               ),

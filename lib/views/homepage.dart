@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/builders/build_function.dart';
+import 'package:book_my_show/customs/custom_widgets/customScrollableList.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:book_my_show/views/eventspage.dart';
@@ -226,85 +227,12 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 30),
 
                         // Recommended and See all row
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15, right: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              // Recommended Text
-                              const Text(
-                                'Recommended Movies',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              // Text Button for see all option
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () {
-                                  print('See All');
-                                },
-                                child: _recommendedMovies.length > 8
-                                    ? Row(
-                                        children: const <Widget>[
-                                          Text(
-                                            'See All',
-                                            style: TextStyle(
-                                              color: Color_Red,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                            textAlign: TextAlign.right,
-                                          ),
-                                          Icon(
-                                            Icons.arrow_forward_ios_rounded,
-                                            size: 8,
-                                            color: Color_Red,
-                                          ),
-                                        ],
-                                      )
-                                    : Opacity(
-                                        opacity: 0,
-                                        child: Row(
-                                          children: const <Widget>[
-                                            Text(
-                                              'See All',
-                                              style: TextStyle(
-                                                color: Color_Red,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                              textAlign: TextAlign.right,
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios_rounded,
-                                              size: 8,
-                                              color: Color_Red,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                              ),
-                            ],
-                          ),
+                        CustomScrollableListBuilder(
+                          type: 'Recommended Movies',
+                          data: _recommendedMovies,
+                          size: size,
+                          title: 'Recommended Movies',
                         ),
-                        const SizedBox(height: 15),
-
-                        // Movies List - Scrollable - row
-                        SizedBox(
-                          height: 280,
-                          width: size.width,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: const BouncingScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return recommendedBuilder(
-                                  _recommendedMovies, index);
-                            },
-                            itemCount: _recommendedMovies.length,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
 
                         // The Best events This Week
                         SizedBox(
@@ -339,7 +267,7 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: SizedBox(
-                            height: 350,
+                            height: size.height / 2.16,
                             width: size.width,
                             child: gridBuilder(
                               'The Best events this Week',
@@ -390,7 +318,7 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: SizedBox(
-                            height: 280,
+                            height: size.height / 2.8,
                             width: size.width,
                             child: gridBuilder(
                               'The Ultimate Events',
@@ -508,18 +436,54 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 15),
 
                         //The Best of Live Events
+                        CustomScrollableListBuilder(
+                          type: 'Recommended Movies',
+                          data: _recommendedMovies,
+                          size: size,
+                          title: 'Recommended Movies',
+                        ),
 
                         // Live Events Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Recommended Movies',
+                          data: _recommendedMovies,
+                          size: size,
+                          title: 'Recommended Movies',
+                        ),
 
                         // Laughter Therapy Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Recommended Movies',
+                          data: _recommendedMovies,
+                          size: size,
+                          title: 'Recommended Movies',
+                        ),
 
                         // Popular Events Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Recommended Movies',
+                          data: _recommendedMovies,
+                          size: size,
+                          title: 'Recommended Movies',
+                        ),
 
                         // Top games and Sports Events Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Recommended Movies',
+                          data: _recommendedMovies,
+                          size: size,
+                          title: 'Recommended Movies',
+                        ),
 
-                        //Explore Fun activities Scrollable List
+                        // Explore Fun activities Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Recommended Movies',
+                          data: _recommendedMovies,
+                          size: size,
+                          title: 'Recommended Movies',
+                        ),
 
-                        //Buzz Scrollable Tiles
+                        // Buzz Scrollable Tiles
                       ],
                     ),
                   ),
