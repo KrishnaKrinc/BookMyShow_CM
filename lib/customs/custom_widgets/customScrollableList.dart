@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:book_my_show/customs/builders/build_function.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
                           Text(
                             'See All',
                             style: TextStyle(
-                              color: Color_Red,
+                              color: colorRed,
                               fontWeight: FontWeight.w500,
                             ),
                             textAlign: TextAlign.right,
@@ -49,7 +50,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
                           Icon(
                             Icons.arrow_forward_ios_rounded,
                             size: 8,
-                            color: Color_Red,
+                            color: colorRed,
                           ),
                         ],
                       )
@@ -60,7 +61,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
                             Text(
                               'See All',
                               style: TextStyle(
-                                color: Color_Red,
+                                color: colorRed,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.right,
@@ -68,7 +69,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
                             Icon(
                               Icons.arrow_forward_ios_rounded,
                               size: 8,
-                              color: Color_Red,
+                              color: colorRed,
                             ),
                           ],
                         ),

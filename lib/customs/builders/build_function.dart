@@ -26,13 +26,13 @@ Widget buildLoader(Size size, Color color) {
             const Text(
               'It All Starts Here',
               style: TextStyle(
-                  color: Colors.white,
+                  color: colorWhite,
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.10),
             const CircularProgressIndicator(
-              color: Colors.white,
+              color: colorWhite,
             ),
           ],
         ),
@@ -57,7 +57,7 @@ Widget recommendedBuilder(data, index) {
             children: [
               Container(
                 height: 220,
-                width: 140,
+                width: 145,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -69,10 +69,10 @@ Widget recommendedBuilder(data, index) {
               const SizedBox(height: 8),
               Container(
                 height: 25,
-                width: 140,
+                width: 145,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
-                  color: Colors.grey[300],
+                  color: colorGrey.shade300,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -83,7 +83,7 @@ Widget recommendedBuilder(data, index) {
                         children: [
                           const Icon(
                             Icons.star_rate_rounded,
-                            color: Colors.red,
+                            color: colorRed,
                             size: 16,
                           ),
                           Text(
@@ -132,7 +132,7 @@ Widget customScrollableListBuilder(data, index, title) {
             children: [
               Container(
                 height: 220,
-                width: 140,
+                width: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -144,10 +144,10 @@ Widget customScrollableListBuilder(data, index, title) {
               const SizedBox(height: 8),
               Container(
                 height: 25,
-                width: 140,
+                width: 145,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
-                  color: Colors.grey[300],
+                  color: colorRed,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -158,7 +158,7 @@ Widget customScrollableListBuilder(data, index, title) {
                       Text(
                         data[index]['liveDate'],
                         style: const TextStyle(
-                          fontSize: 12,
+                          fontSize: 11,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -168,7 +168,7 @@ Widget customScrollableListBuilder(data, index, title) {
               ),
               const SizedBox(height: 10),
               SizedBox(
-                width: 140,
+                width: 145,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -188,7 +188,7 @@ Widget customScrollableListBuilder(data, index, title) {
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.grey.shade600,
+                        color: colorGrey.shade600,
                       ),
                     ),
                   ],
@@ -251,7 +251,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
                 Text(
                   e['mName'],
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: colorWhite,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 0.5,
@@ -266,7 +266,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: colorWhite,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 0.5,
@@ -282,7 +282,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: colorWhite,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 0.5,
@@ -301,7 +301,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
           width: size.width / 1.1,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: colorRed,
               surfaceTintColor: Colors.transparent,
               elevation: null,
             ),
@@ -334,7 +334,7 @@ PreferredSizeWidget customAppBar(
   return index == 2
       ? AppBar(
           toolbarHeight: size.height / 12,
-          backgroundColor: Color_DarkBlue,
+          backgroundColor: colorDarkBlue,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -369,7 +369,7 @@ PreferredSizeWidget customAppBar(
           ))
       : AppBar(
           toolbarHeight: size.height / 12,
-          backgroundColor: Color_DarkBlue,
+          backgroundColor: colorDarkBlue,
           //title row of text and icons
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

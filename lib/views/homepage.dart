@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return _loading
-        ? buildLoader(size, Colors.red)
+        ? buildLoader(size, colorRed)
         : Scaffold(
             // appbar
             appBar: customAppBar(size, _activePageIndex, locationController),
@@ -206,8 +206,8 @@ class _HomePageState extends State<HomePage> {
                                                     BorderRadius.circular(10),
                                                 color: _activeAdCarouselIndex ==
                                                         entry.key
-                                                    ? Colors.white
-                                                    : Colors.grey),
+                                                    ? colorWhite
+                                                    : colorGrey),
                                           ),
                                         );
                                       }).toList(),
@@ -264,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                                           Text(
                                             'See All',
                                             style: TextStyle(
-                                              color: Color_Red,
+                                              color: colorRed,
                                               fontWeight: FontWeight.w500,
                                             ),
                                             textAlign: TextAlign.right,
@@ -272,7 +272,7 @@ class _HomePageState extends State<HomePage> {
                                           Icon(
                                             Icons.arrow_forward_ios_rounded,
                                             size: 8,
-                                            color: Color_Red,
+                                            color: colorRed,
                                           ),
                                         ],
                                       )
@@ -283,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                                             Text(
                                               'See All',
                                               style: TextStyle(
-                                                color: Color_Red,
+                                                color: colorRed,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                               textAlign: TextAlign.right,
@@ -291,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                                             Icon(
                                               Icons.arrow_forward_ios_rounded,
                                               size: 8,
-                                              color: Color_Red,
+                                              color: colorRed,
                                             ),
                                           ],
                                         ),
@@ -425,13 +425,14 @@ class _HomePageState extends State<HomePage> {
                           height: size.height / 8,
                           width: size.width,
                           decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
-                                ),
-                                fit: BoxFit.fill,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
                               ),
-                              color: Color_DarkBlue),
+                              fit: BoxFit.fill,
+                            ),
+                            color: colorDarkBlue,
+                          ),
                         ),
 
                         // Carousel_Slider
@@ -443,7 +444,7 @@ class _HomePageState extends State<HomePage> {
                                       print(_activeCarouselIndex);
                                     },
                                     child: Container(
-                                      color: Color_DarkBlue,
+                                      color: colorDarkBlue,
                                       height: 400,
                                       width: size.width,
                                       child: CarouselSlider(
@@ -504,8 +505,8 @@ class _HomePageState extends State<HomePage> {
                                                   BorderRadius.circular(10),
                                               color: _activeCarouselIndex ==
                                                       entry.key
-                                                  ? Colors.white
-                                                  : Colors.grey,
+                                                  ? colorWhite
+                                                  : colorGrey,
                                             ),
                                           ),
                                         );
@@ -520,7 +521,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Live Events Scrollable List
                         Container(
-                          color: Colors.grey.shade300,
+                          color: colorGrey.shade300,
                           child: CustomScrollableListBuilder(
                             type: 'Live Events',
                             data: _liveEvents,
@@ -576,7 +577,7 @@ class _HomePageState extends State<HomePage> {
                     'assets/logos/home.png',
                     height: 23,
                     width: 23,
-                    color: Colors.grey,
+                    color: colorGrey,
                   ),
                   activeIcon: Image.asset(
                     'assets/logos/home.png',
@@ -594,7 +595,7 @@ class _HomePageState extends State<HomePage> {
                         children: const <Widget>[
                           Icon(
                             Icons.star_rate_rounded,
-                            color: Color_Black,
+                            color: colorBlack,
                             size: 9,
                           ),
                           SizedBox(width: 8),
@@ -604,7 +605,7 @@ class _HomePageState extends State<HomePage> {
                         'LIVE',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Color_Black,
+                          color: colorBlack,
                           fontWeight: FontWeight.bold,
                           letterSpacing: -0.5,
                           fontSize: 12,
@@ -619,19 +620,19 @@ class _HomePageState extends State<HomePage> {
                 const BottomNavigationBarItem(
                   icon: Icon(
                     Icons.person,
-                    color: Color_Black,
+                    color: colorBlack,
                     size: 24,
                   ),
                   activeIcon: Icon(
                     Icons.person,
-                    color: Colors.red,
+                    color: colorRed,
                     size: 24,
                   ),
                   label: 'Profile',
                 ),
               ],
               currentIndex: _activePageIndex,
-              selectedItemColor: Colors.red,
+              selectedItemColor: colorRed,
               onTap: _onBottomNavItemTapped,
             ),
           );
