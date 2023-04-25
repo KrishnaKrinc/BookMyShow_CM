@@ -351,7 +351,7 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: SizedBox(
-                            height: size.height / 2.16,
+                            height: size.height / 2.35,
                             width: size.width,
                             child: gridBuilder(
                               'The Best events this Week',
@@ -402,7 +402,7 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: SizedBox(
-                            height: size.height / 2.8,
+                            height: size.height / 3,
                             width: size.width,
                             child: gridBuilder(
                               'The Ultimate Events',
