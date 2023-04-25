@@ -56,8 +56,8 @@ Widget recommendedBuilder(data, index) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 210,
-                width: 125,
+                height: 220,
+                width: 140,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -69,7 +69,7 @@ Widget recommendedBuilder(data, index) {
               const SizedBox(height: 8),
               Container(
                 height: 25,
-                width: 125,
+                width: 140,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   color: Colors.grey[300],
@@ -103,6 +103,96 @@ Widget recommendedBuilder(data, index) {
               const SizedBox(height: 10),
               Text(
                 data[index]['mName'],
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        index == data.length - 1
+            ? const SizedBox(width: 15)
+            : const SizedBox(width: 0),
+      ],
+    ),
+  );
+}
+
+// Custom Scrollable List Builder
+Widget customScrollableListBuilder(data, index, title) {
+  double left = index == 0 ? 15 : 10;
+  return Padding(
+    padding: EdgeInsets.only(left: left),
+    child: Row(
+      children: [
+        CustomInkWell(
+          onTap: () {
+            print('$title Index ::  $index');
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 220,
+                width: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  image: DecorationImage(
+                    image: NetworkImage(data[index]['url']),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Container(
+                height: 25,
+                width: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  color: Colors.grey[300],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        data[index]['liveDate'],
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: 140,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      data[index]['showName'],
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      data[index]['otherInfo'],
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey.shade600,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

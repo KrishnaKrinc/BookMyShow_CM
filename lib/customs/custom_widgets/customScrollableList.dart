@@ -14,6 +14,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: Row(
@@ -32,7 +33,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () {
-                  print('See All');
+                  print('$title => See All');
                 },
                 child: data.length > 8
                     ? Row(
@@ -80,13 +81,13 @@ class CustomScrollableListBuilder extends StatelessWidget {
 
         // Movies List - Scrollable - row
         SizedBox(
-          height: 280,
+          height: 330,
           width: size.width,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              return recommendedBuilder(data, index);
+              return customScrollableListBuilder(data, index, title);
             },
             itemCount: data.length,
           ),

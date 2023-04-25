@@ -238,12 +238,85 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 30),
 
                         // Recommended and See all row
-                        CustomScrollableListBuilder(
-                          type: 'Recommended Movies',
-                          data: _recommendedMovies,
-                          size: size,
-                          title: 'Recommended Movies',
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              // Recommended Text
+                              const Text(
+                                'Recommended Movies',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              // Text Button for see all option
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () {
+                                  print('Recommended Movies => See All');
+                                },
+                                child: _recommendedMovies.length > 8
+                                    ? Row(
+                                        children: const <Widget>[
+                                          Text(
+                                            'See All',
+                                            style: TextStyle(
+                                              color: Color_Red,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                            textAlign: TextAlign.right,
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_ios_rounded,
+                                            size: 8,
+                                            color: Color_Red,
+                                          ),
+                                        ],
+                                      )
+                                    : Opacity(
+                                        opacity: 0,
+                                        child: Row(
+                                          children: const <Widget>[
+                                            Text(
+                                              'See All',
+                                              style: TextStyle(
+                                                color: Color_Red,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              textAlign: TextAlign.right,
+                                            ),
+                                            Icon(
+                                              Icons.arrow_forward_ios_rounded,
+                                              size: 8,
+                                              color: Color_Red,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                              ),
+                            ],
+                          ),
                         ),
+                        const SizedBox(height: 15),
+
+                        // Movies List - Scrollable - row
+                        SizedBox(
+                          height: 280,
+                          width: size.width,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            physics: const BouncingScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return recommendedBuilder(
+                                  _recommendedMovies, index);
+                            },
+                            itemCount: _recommendedMovies.length,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
 
                         // The Best events This Week
                         SizedBox(
@@ -444,14 +517,16 @@ class _HomePageState extends State<HomePage> {
                             : const Center(
                                 child: CircularProgressIndicator(),
                               ),
-                        const SizedBox(height: 15),
 
                         // Live Events Scrollable List
-                        CustomScrollableListBuilder(
-                          type: 'Live Events',
-                          data: _liveEvents,
-                          size: size,
-                          title: 'Live Events',
+                        Container(
+                          color: Colors.grey.shade300,
+                          child: CustomScrollableListBuilder(
+                            type: 'Live Events',
+                            data: _liveEvents,
+                            size: size,
+                            title: 'Live Events',
+                          ),
                         ),
 
                         // Laughter Therapy Scrollable List
