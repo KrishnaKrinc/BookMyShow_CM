@@ -26,13 +26,11 @@ Widget buildLoader(Size size, Color color) {
             const Text(
               'It All Starts Here',
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+                  color: colorWhite, fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.10),
             const CircularProgressIndicator(
-              color: Colors.white,
+              color: colorWhite,
             ),
           ],
         ),
@@ -56,8 +54,8 @@ Widget recommendedBuilder(data, index) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 210,
-                width: 125,
+                height: 220,
+                width: 145,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
@@ -66,42 +64,140 @@ Widget recommendedBuilder(data, index) {
                   ),
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 8),
               Container(
                 height: 25,
-                width: 125,
+                width: 145,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
-                  color: Colors.grey[300],
+                  color: colorGrey.shade300,
                 ),
                 child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.star_rate_rounded,
-                              color: Colors.red,
-                              size: 16,
-                            ),
-                            Text(
-                              '${data[index]['Rating']}',
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          '${formatNumber(data[index]['Votes'])} votes',
-                          style: const TextStyle(fontSize: 12),
-                        ),
-                      ],
-                    )),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: const [
+                              SizedBox(height: 3.8),
+                              Icon(
+                                Icons.star_rate_rounded,
+                                color: colorRed,
+                                size: 16,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            '${data[index]['Rating']}',
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        '${formatNumber(data[index]['Votes'])} votes',
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
               Text(
                 data[index]['mName'],
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        index == data.length - 1
+            ? const SizedBox(width: 15)
+            : const SizedBox(width: 0),
+      ],
+    ),
+  );
+}
+
+// Custom Scrollable List Builder
+Widget customScrollableListBuilder(data, index, title) {
+  double left = index == 0 ? 15 : 10;
+  return Padding(
+    padding: EdgeInsets.only(left: left),
+    child: Row(
+      children: [
+        CustomInkWell(
+          onTap: () {
+            print('$title Index ::  $index');
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 220,
+                width: 150,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  image: DecorationImage(
+                    image: NetworkImage(data[index]['url']),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Container(
+                height: 25,
+                width: 145,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  color: colorGrey.shade300,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        data[index]['liveDate'],
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: 145,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      data[index]['showName'],
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      data[index]['otherInfo'],
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: colorGrey.shade600,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -160,7 +256,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
                 Text(
                   e['mName'],
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: colorWhite,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 0.5,
@@ -175,7 +271,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: colorWhite,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 0.5,
@@ -191,7 +287,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: colorWhite,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 0.5,
@@ -210,7 +306,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
           width: size.width / 1.1,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: colorRed,
               surfaceTintColor: Colors.transparent,
               elevation: null,
             ),
@@ -243,7 +339,7 @@ PreferredSizeWidget customAppBar(
   return index == 2
       ? AppBar(
           toolbarHeight: size.height / 12,
-          backgroundColor: Color_DarkBlue,
+          backgroundColor: colorDarkBlue,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -278,7 +374,7 @@ PreferredSizeWidget customAppBar(
           ))
       : AppBar(
           toolbarHeight: size.height / 12,
-          backgroundColor: Color_DarkBlue,
+          backgroundColor: colorDarkBlue,
           //title row of text and icons
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -346,4 +442,43 @@ PreferredSizeWidget customAppBar(
             ],
           ),
         );
+}
+
+Widget gridBuilder(
+  type,
+  rightPadding,
+  data,
+  size,
+  maxCrossAxisExtent,
+  childAspectRatio,
+  crossAxisSpacing,
+  mainAxisSpacing,
+  scrollDirection,
+  physics,
+) {
+  return GridView.builder(
+    primary: true,
+    scrollDirection: scrollDirection,
+    physics: physics,
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      childAspectRatio: childAspectRatio,
+      crossAxisSpacing: crossAxisSpacing,
+      mainAxisSpacing: mainAxisSpacing,
+    ),
+    itemCount: data.length,
+    itemBuilder: (BuildContext context, int index) {
+      return Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              data[index]['url'],
+            ),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+      );
+    },
+  );
 }

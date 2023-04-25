@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/builders/build_function.dart';
+import 'package:book_my_show/customs/custom_widgets/customScrollableList.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:book_my_show/views/eventspage.dart';
@@ -29,6 +30,14 @@ class _HomePageState extends State<HomePage> {
   //API Feteched Data Lists
   List _movies = [];
   List _recommendedMovies = [];
+  List _bestEventsThisWeek = [];
+  List _ultimateEvents = [];
+  List _liveEvents = [];
+  List _laughterTherapy = [];
+  List _popularEvents = [];
+  List _topGamesEvents = [];
+  List _funActivities = [];
+  List _buzz = [];
 
   //Index of lists
   int _activeCarouselIndex = 0;
@@ -87,6 +96,13 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _movies = data["BuyorRent"];
       _recommendedMovies = data["RecommendedMovies"];
+      _bestEventsThisWeek = data["BestEvents"];
+      _ultimateEvents = data["UltimateEvents"];
+      _liveEvents = data["LiveEvents"];
+      _laughterTherapy = data["LaughterTherapy"];
+      _popularEvents = data["PopularEvents"];
+      _topGamesEvents = data["TopGamesEvents"];
+      _funActivities = data["FunActivities"];
     });
 
     // Loader with Timer (For Delay)
@@ -101,7 +117,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return _loading
-        ? buildLoader(size, Colors.red)
+        ? buildLoader(size, colorRed)
         : Scaffold(
             // appbar
             appBar: customAppBar(size, _activePageIndex, locationController),
@@ -190,8 +206,8 @@ class _HomePageState extends State<HomePage> {
                                                     BorderRadius.circular(10),
                                                 color: _activeAdCarouselIndex ==
                                                         entry.key
-                                                    ? Colors.white
-                                                    : Colors.grey),
+                                                    ? colorWhite
+                                                    : colorGrey),
                                           ),
                                         );
                                       }).toList(),
@@ -240,7 +256,7 @@ class _HomePageState extends State<HomePage> {
                                 splashColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () {
-                                  print('See All');
+                                  print('Recommended Movies => See All');
                                 },
                                 child: _recommendedMovies.length > 8
                                     ? Row(
@@ -248,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                                           Text(
                                             'See All',
                                             style: TextStyle(
-                                              color: Color_Red,
+                                              color: colorRed,
                                               fontWeight: FontWeight.w500,
                                             ),
                                             textAlign: TextAlign.right,
@@ -256,7 +272,7 @@ class _HomePageState extends State<HomePage> {
                                           Icon(
                                             Icons.arrow_forward_ios_rounded,
                                             size: 8,
-                                            color: Color_Red,
+                                            color: colorRed,
                                           ),
                                         ],
                                       )
@@ -267,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                                             Text(
                                               'See All',
                                               style: TextStyle(
-                                                color: Color_Red,
+                                                color: colorRed,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                               textAlign: TextAlign.right,
@@ -275,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                                             Icon(
                                               Icons.arrow_forward_ios_rounded,
                                               size: 8,
-                                              color: Color_Red,
+                                              color: colorRed,
                                             ),
                                           ],
                                         ),
@@ -332,21 +348,91 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 20),
                         // Best Events this Week Content
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: SizedBox(
+                            height: size.height / 2.35,
+                            width: size.width,
+                            child: gridBuilder(
+                              'The Best events this Week',
+                              0.0,
+                              _bestEventsThisWeek,
+                              size,
+                              200.0,
+                              1.00,
+                              20.0,
+                              20.0,
+                              Axis.horizontal,
+                              const BouncingScrollPhysics(),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 25),
 
                         // The ultimate Events List
+                        SizedBox(
+                          width: size.width,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  "The Ultimate Events List",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                SizedBox(height: 4.0),
+                                Text(
+                                  "Good times outdoor or at home",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        // Ultimate Events Content
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: SizedBox(
+                            height: size.height / 3,
+                            width: size.width,
+                            child: gridBuilder(
+                              'The Ultimate Events',
+                              0.0,
+                              _ultimateEvents,
+                              size,
+                              200.0,
+                              1.00,
+                              20.0,
+                              20.0,
+                              Axis.horizontal,
+                              const BouncingScrollPhysics(),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 25),
 
                         //Stream Ad Above carousel
                         Container(
                           height: size.height / 8,
                           width: size.width,
                           decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
-                                ),
-                                fit: BoxFit.fill,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
                               ),
-                              color: Color_DarkBlue),
+                              fit: BoxFit.fill,
+                            ),
+                            color: colorDarkBlue,
+                          ),
                         ),
 
                         // Carousel_Slider
@@ -358,7 +444,7 @@ class _HomePageState extends State<HomePage> {
                                       print(_activeCarouselIndex);
                                     },
                                     child: Container(
-                                      color: Color_DarkBlue,
+                                      color: colorDarkBlue,
                                       height: 400,
                                       width: size.width,
                                       child: CarouselSlider(
@@ -415,12 +501,13 @@ class _HomePageState extends State<HomePage> {
                                             margin: const EdgeInsets.symmetric(
                                                 horizontal: 3.0),
                                             decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                color: _activeCarouselIndex ==
-                                                        entry.key
-                                                    ? Colors.white
-                                                    : Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: _activeCarouselIndex ==
+                                                      entry.key
+                                                  ? colorWhite
+                                                  : colorGrey,
+                                            ),
                                           ),
                                         );
                                       }).toList(),
@@ -431,21 +518,51 @@ class _HomePageState extends State<HomePage> {
                             : const Center(
                                 child: CircularProgressIndicator(),
                               ),
-                        const SizedBox(height: 15),
-
-                        //The Best of Live Events
 
                         // Live Events Scrollable List
+                        Container(
+                          color: colorGrey.shade300,
+                          child: CustomScrollableListBuilder(
+                            type: 'Live Events',
+                            data: _liveEvents,
+                            size: size,
+                            title: 'Live Events',
+                          ),
+                        ),
 
                         // Laughter Therapy Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Laughter Therapy',
+                          data: _laughterTherapy,
+                          size: size,
+                          title: 'Laughter Therapy',
+                        ),
 
                         // Popular Events Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Popular Events',
+                          data: _popularEvents,
+                          size: size,
+                          title: 'Popular Events',
+                        ),
 
                         // Top games and Sports Events Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Top games and Sports Events',
+                          data: _topGamesEvents,
+                          size: size,
+                          title: 'Top games and Sports Events',
+                        ),
 
-                        //Explore Fun activities Scrollable List
+                        // Explore Fun Activities Scrollable List
+                        CustomScrollableListBuilder(
+                          type: 'Explore Fun Activities',
+                          data: _funActivities,
+                          size: size,
+                          title: 'Explore Fun Activities',
+                        ),
 
-                        //Buzz Scrollable Tiles
+                        // Buzz Scrollable Tiles
                       ],
                     ),
                   ),
@@ -460,7 +577,7 @@ class _HomePageState extends State<HomePage> {
                     'assets/logos/home.png',
                     height: 23,
                     width: 23,
-                    color: Colors.grey,
+                    color: colorGrey,
                   ),
                   activeIcon: Image.asset(
                     'assets/logos/home.png',
@@ -478,7 +595,7 @@ class _HomePageState extends State<HomePage> {
                         children: const <Widget>[
                           Icon(
                             Icons.star_rate_rounded,
-                            color: Color_Black,
+                            color: colorBlack,
                             size: 9,
                           ),
                           SizedBox(width: 8),
@@ -488,7 +605,7 @@ class _HomePageState extends State<HomePage> {
                         'LIVE',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Color_Black,
+                          color: colorBlack,
                           fontWeight: FontWeight.bold,
                           letterSpacing: -0.5,
                           fontSize: 12,
@@ -503,19 +620,19 @@ class _HomePageState extends State<HomePage> {
                 const BottomNavigationBarItem(
                   icon: Icon(
                     Icons.person,
-                    color: Color_Black,
+                    color: colorBlack,
                     size: 24,
                   ),
                   activeIcon: Icon(
                     Icons.person,
-                    color: Colors.red,
+                    color: colorRed,
                     size: 24,
                   ),
                   label: 'Profile',
                 ),
               ],
               currentIndex: _activePageIndex,
-              selectedItemColor: Colors.red,
+              selectedItemColor: colorRed,
               onTap: _onBottomNavItemTapped,
             ),
           );
