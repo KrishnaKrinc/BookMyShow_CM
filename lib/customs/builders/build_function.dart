@@ -26,9 +26,7 @@ Widget buildLoader(Size size, Color color) {
             const Text(
               'It All Starts Here',
               style: TextStyle(
-                  color: colorWhite,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+                  color: colorWhite, fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.10),
             const CircularProgressIndicator(
@@ -78,13 +76,20 @@ Widget recommendedBuilder(data, index) {
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Row(
                         children: [
-                          const Icon(
-                            Icons.star_rate_rounded,
-                            color: colorRed,
-                            size: 16,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: const [
+                              SizedBox(height: 3.8),
+                              Icon(
+                                Icons.star_rate_rounded,
+                                color: colorRed,
+                                size: 16,
+                              ),
+                            ],
                           ),
                           Text(
                             '${data[index]['Rating']}',
@@ -147,7 +152,7 @@ Widget customScrollableListBuilder(data, index, title) {
                 width: 145,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
-                  color: colorRed,
+                  color: colorGrey.shade300,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
