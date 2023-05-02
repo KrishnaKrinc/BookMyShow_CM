@@ -103,6 +103,7 @@ class _HomePageState extends State<HomePage> {
       _popularEvents = data["PopularEvents"];
       _topGamesEvents = data["TopGamesEvents"];
       _funActivities = data["FunActivities"];
+      _buzz = data["Buzz"];
     });
 
     // Loader with Timer (For Delay)
@@ -563,6 +564,39 @@ class _HomePageState extends State<HomePage> {
                         ),
 
                         // Buzz Scrollable Tiles
+                        SizedBox(
+                          width: size.width,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'What\'s hot?',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Text(
+                                  'News from the World of Entertainment',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Buzz ListView
+                        const SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: buzzBuilder(_buzz, size),
+                        ),
+                        const SizedBox(height: 15),
                       ],
                     ),
                   ),

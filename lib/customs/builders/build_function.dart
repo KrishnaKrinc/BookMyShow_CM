@@ -149,26 +149,23 @@ Widget customScrollableListBuilder(data, index, title) {
               const SizedBox(height: 8),
               Container(
                 height: 25,
-                width: 145,
+                width: 151,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   color: colorGrey.shade300,
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        data[index]['liveDate'],
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w400,
-                        ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      data[index]['liveDate'],
+                      style: const TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 10),
@@ -325,6 +322,71 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
         ),
       ),
     ],
+  );
+}
+
+// Buzz Builder
+Widget buzzBuilder(data, size) {
+  return SizedBox(
+    height: size.height * 0.18,
+    child: ListView.separated(
+      physics: const BouncingScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      itemBuilder: (BuildContext context, index) {
+        return Container(
+          height: 180,
+          width: size.width * 0.80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: colorDarkBlue,
+          ),
+          child: Card(
+            margin: const EdgeInsets.all(8.0),
+            color: colorDarkBlue,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 90,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        data[index]['url'],
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.only(
+                    left: 8.0,
+                    right: 8.0,
+                  ),
+                  width: size.width * 0.50,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      maxLines: 5,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
+                      data[index]['otherInfo'] as String,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+      itemCount: data.length,
+      separatorBuilder: (context, index) => const SizedBox(width: 8.0),
+    ),
   );
 }
 

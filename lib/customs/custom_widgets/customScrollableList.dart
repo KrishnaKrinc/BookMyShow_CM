@@ -21,7 +21,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              // Recommended Text
+              // Title Text
               Text(
                 title,
                 style: const TextStyle(
@@ -80,7 +80,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
         ),
         const SizedBox(height: 15),
 
-        // Movies List - Scrollable - row
+        // Card List - Scrollable - row
         SizedBox(
           height: 330,
           width: size.width,
