@@ -149,23 +149,26 @@ Widget customScrollableListBuilder(data, index, title) {
               const SizedBox(height: 8),
               Container(
                 height: 25,
-                width: 151,
+                width: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   color: colorGrey.shade300,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      data[index]['liveDate'],
-                      style: const TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w400,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        data[index]['liveDate'],
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 10),
