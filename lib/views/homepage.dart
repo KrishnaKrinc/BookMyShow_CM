@@ -524,6 +524,7 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           color: colorGrey.shade300,
                           child: CustomScrollableListBuilder(
+                            context: context,
                             type: 'Live Events',
                             data: _liveEvents,
                             size: size,
@@ -533,6 +534,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Laughter Therapy Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Laughter Therapy',
                           data: _laughterTherapy,
                           size: size,
@@ -541,6 +543,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Popular Events Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Popular Events',
                           data: _popularEvents,
                           size: size,
@@ -549,6 +552,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Top games and Sports Events Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Top games and Sports Events',
                           data: _topGamesEvents,
                           size: size,
@@ -557,6 +561,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Explore Fun Activities Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Explore Fun Activities',
                           data: _funActivities,
                           size: size,

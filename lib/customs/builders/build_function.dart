@@ -1,7 +1,8 @@
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
-import 'package:book_my_show/views/bookingpage.dart';
+import 'package:book_my_show/views/bookingpage_movies.dart';
+import 'package:book_my_show/views/bookingpage_shows.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -53,7 +54,7 @@ Widget recommendedBuilder(BuildContext context, data, index) {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) =>
-                    BookingPage(data: data, index: index, title: 'mName'),
+                    BookingPageMovies(data: data, index: index, title: 'mName'),
               ),
             );
           },
@@ -129,7 +130,7 @@ Widget recommendedBuilder(BuildContext context, data, index) {
 }
 
 // Custom Scrollable List Builder
-Widget customScrollableListBuilder(data, index, title) {
+Widget customScrollableListBuilder(context, data, index, title) {
   double left = index == 0 ? 15 : 10;
   return Padding(
     padding: EdgeInsets.only(left: left),
@@ -138,6 +139,12 @@ Widget customScrollableListBuilder(data, index, title) {
         CustomInkWell(
           onTap: () {
             print('$title Index ::  $index');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    BookingPageShows(data: data, index: index, title: 'showName'),
+              ),
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

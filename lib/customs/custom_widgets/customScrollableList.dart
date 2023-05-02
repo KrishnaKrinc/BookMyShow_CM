@@ -4,12 +4,13 @@ import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomScrollableListBuilder extends StatelessWidget {
+  final context;
   final data;
   final type;
   final size;
   final title;
   const CustomScrollableListBuilder(
-      {super.key, this.data, this.type, this.size, this.title});
+      {super.key, this.data, this.type, this.size, this.title, this.context});
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +89,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              return customScrollableListBuilder(data, index, title);
+              return customScrollableListBuilder(context, data, index, title);
             },
             itemCount: data.length,
           ),

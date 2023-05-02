@@ -3,11 +3,11 @@ import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class BookingPage extends StatelessWidget {
+class BookingPageMovies extends StatelessWidget {
   final data;
   final index;
   final title;
-  const BookingPage({super.key, this.data, this.index, this.title});
+  const BookingPageMovies({super.key, this.data, this.index, this.title});
 
   @override
   Widget build(BuildContext context) {
