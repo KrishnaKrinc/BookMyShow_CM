@@ -2,7 +2,6 @@ import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 
 class BookingPage extends StatelessWidget {
   final data;
@@ -44,7 +43,7 @@ class BookingPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
             Container(
