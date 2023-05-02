@@ -312,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                             physics: const BouncingScrollPhysics(),
                             itemBuilder: (context, index) {
                               return recommendedBuilder(
-                                  _recommendedMovies, index);
+                                  context, _recommendedMovies, index);
                             },
                             itemCount: _recommendedMovies.length,
                           ),

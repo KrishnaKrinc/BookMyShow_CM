@@ -1,6 +1,7 @@
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
+import 'package:book_my_show/views/bookingpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -40,7 +41,7 @@ Widget buildLoader(Size size, Color color) {
 }
 
 // Recommended Movies List Builder
-Widget recommendedBuilder(data, index) {
+Widget recommendedBuilder(BuildContext context, data, index) {
   double left = index == 0 ? 15 : 10;
   return Padding(
     padding: EdgeInsets.only(left: left),
@@ -49,6 +50,12 @@ Widget recommendedBuilder(data, index) {
         CustomInkWell(
           onTap: () {
             print('Recommnended Movies Index ::  $index');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) =>
+                    BookingPage(data: data, index: index, title: 'mName'),
+              ),
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +66,7 @@ Widget recommendedBuilder(data, index) {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
-                    image: NetworkImage(data[index]['imagePath']),
+                    image: NetworkImage(data[index]['url']),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -239,7 +246,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
-                  image: NetworkImage(e['imagePath']),
+                  image: NetworkImage(e['url']),
                   fit: BoxFit.fill,
                 ),
               ),
