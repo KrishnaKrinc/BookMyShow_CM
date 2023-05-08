@@ -1,8 +1,7 @@
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
-import 'package:book_my_show/views/bookingpage_movies.dart';
-import 'package:book_my_show/views/bookingpage_shows.dart';
+import 'package:book_my_show/views/bookingpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -53,8 +52,12 @@ Widget recommendedBuilder(BuildContext context, data, index) {
             print('Recommnended Movies Index ::  $index');
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) =>
-                    BookingPageMovies(data: data, index: index, title: 'mName'),
+                builder: (context) => BookingPage(
+                  data: data,
+                  index: index,
+                  title: 'mName',
+                  type: 'movies',
+                ),
               ),
             );
           },
@@ -141,8 +144,12 @@ Widget customScrollableListBuilder(context, data, index, title) {
             print('$title Index ::  $index');
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) =>
-                    BookingPageShows(data: data, index: index, title: 'showName'),
+                builder: (context) => BookingPage(
+                  data: data,
+                  index: index,
+                  title: 'showName',
+                  type: 'shows',
+                ),
               ),
             );
           },
