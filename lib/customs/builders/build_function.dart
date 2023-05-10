@@ -40,6 +40,8 @@ Widget buildLoader(Size size, Color color) {
   );
 }
 
+
+// Home Screen Custom Functions
 // Recommended Movies List Builder
 Widget recommendedBuilder(BuildContext context, data, index) {
   double left = index == 0 ? 15 : 10;
@@ -568,3 +570,6 @@ Widget gridBuilder(
     },
   );
 }
+
+
+//Booking Screen Custom Functions

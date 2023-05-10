@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(8),
                               image: const DecorationImage(
                                 image: NetworkImage(
-                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-480:w-600:q-80/stream_hp_banner-collection-202210130606.jpg',
                                 ),
                                 fit: BoxFit.fill,
                               ),
@@ -428,7 +428,7 @@ class _HomePageState extends State<HomePage> {
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: NetworkImage(
-                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-480:w-600:q-80/stream_hp_banner-collection-202210130606.jpg',
                               ),
                               fit: BoxFit.fill,
                             ),
@@ -442,7 +442,7 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   CustomInkWell(
                                     onTap: () {
-                                      print(_activeCarouselIndex);
+                                      print('Buy or Rent Index :: $_activeCarouselIndex');
                                     },
                                     child: Container(
                                       color: colorDarkBlue,
