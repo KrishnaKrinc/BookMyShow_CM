@@ -151,6 +151,7 @@ Widget customScrollableListBuilder(context, data, index, title) {
                   index: index,
                   title: 'showName',
                   type: 'shows',
+                  subtitle: title,
                 ),
               ),
             );

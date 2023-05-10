@@ -8,7 +8,9 @@ class BookingPage extends StatelessWidget {
   final index;
   final title;
   final type;
-  const BookingPage({super.key, this.data, this.index, this.title, this.type});
+  final subtitle;
+  const BookingPage(
+      {super.key, this.data, this.index, this.title, this.type, this.subtitle});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class BookingPage extends StatelessWidget {
               foregroundColor: colorBlack,
               elevation: 0.0,
               leading: CustomInkWell(
-                child: const Icon(Icons.arrow_back_ios, size: 15),
+                child: const Icon(Icons.arrow_back_ios),
                 onTap: () => Navigator.pop(context),
               ),
               title: Text(
@@ -76,62 +78,152 @@ class BookingPage extends StatelessWidget {
           : CustomScrollView(
               physics: const BouncingScrollPhysics(),
               slivers: [
-                SliverAppBar(
+                SliverPersistentHeader(
+                  delegate: CustomSilverAppBarDelegate(
+                    data,
+                    index,
+                    title,
+                    context,
+                    size,
+                    expandedHeight: 200,
+                  ),
                   pinned: true,
-                  expandedHeight: 200,
-                  leading: IconButton(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                    ),
-                  ),
-                  flexibleSpace: FlexibleSpaceBar(
-                    // title: Text(
-                    //   data[index]['$title'],
-                    //   style: const TextStyle(fontSize: 17),
-                    // ),
-                    expandedTitleScale: 1,
-                    centerTitle: true,
-                    background: Column(
-                      children: [
-                        Container(
-                          width: size.width,
-                          height: 200,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                data[index]['url'],
-                              ),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  backgroundColor: colorDarkBlue,
-                  actions: [
-                    IconButton(
-                        highlightColor: Colors.transparent,
-                        splashColor: Colors.transparent,
-                        onPressed: () {},
-                        icon: const Icon(Icons.share_outlined))
-                  ],
                 ),
                 SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      return ListTile(
-                        title: Text('Item $index'),
-                      );
+                  delegate: SliverChildListDelegate([
+                    Text(data[index]['$title']),
+                    SizedBox(height: 10000,),
+                  ]),
+                ),
+              ],
+            ),
+      bottomNavigationBar: BottomAppBar(
+        height: 60,
+        child: Container(
+          width: size.width,
+          decoration: BoxDecoration(
+            border: Border.all(color: colorGrey),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('\$299 onwards'),
+                SizedBox(
+                  height: 40,
+                  width: size.width / 2.2,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('Book Pressed => $subtitle => Index :: $index');
                     },
-                    childCount: 100,
+                    style: ElevatedButton.styleFrom(backgroundColor: colorRed),
+                    child: const Text(
+                      'Book',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ],
             ),
+          ),
+        ),
+      ),
     );
   }
+}
+
+class CustomSilverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  final data;
+  final index;
+  final title;
+  final context;
+  final size;
+  final double expandedHeight;
+
+  const CustomSilverAppBarDelegate(
+    this.data,
+    this.index,
+    this.title,
+    this.context,
+    this.size, {
+    required this.expandedHeight,
+  });
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    final top = expandedHeight - shrinkOffset;
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        buildBackground(shrinkOffset),
+        buildAppBar(shrinkOffset),
+        Positioned(
+          top: 3,
+          left: 2,
+          right: 2,
+          child: buildIcons(shrinkOffset),
+        ),
+      ],
+    );
+  }
+
+  double appear(double shrinkOffset) => shrinkOffset / expandedHeight;
+  double disappear(double shrinkOffset) => 1 - shrinkOffset / expandedHeight;
+
+  Widget buildAppBar(double shrinkOffset) => Opacity(
+        opacity: appear(shrinkOffset),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          title: Text(
+            data[index]['$title'],
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontSize: 18),
+          ),
+          backgroundColor: colorDarkBlue,
+          centerTitle: true,
+        ),
+      );
+
+  Widget buildBackground(double shrinkOffset) => Opacity(
+        opacity: disappear(shrinkOffset),
+        child: Image.network(
+          data[index]['url'],
+          fit: BoxFit.cover,
+        ),
+      );
+
+  Widget buildIcons(double shrinkOffset) => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: colorWhite,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.share_outlined,
+              color: colorWhite,
+            ),
+          ),
+        ],
+      );
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
+
+  @override
+  double get maxExtent => expandedHeight;
+
+  @override
+  double get minExtent => kToolbarHeight + 5;
 }
