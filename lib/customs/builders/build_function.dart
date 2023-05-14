@@ -59,6 +59,7 @@ Widget recommendedBuilder(BuildContext context, data, index) {
                   index: index,
                   title: 'mName',
                   type: 'movies',
+                  subtitle: 'Recommnended Movies',
                 ),
               ),
             );

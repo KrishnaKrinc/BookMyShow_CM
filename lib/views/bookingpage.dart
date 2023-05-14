@@ -149,30 +149,51 @@ class BookingPage extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('\$299 onwards'),
-                SizedBox(
-                  height: 40,
-                  width: size.width / 2.2,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('Book Pressed => $subtitle => Index :: $index');
-                    },
-                    style: ElevatedButton.styleFrom(backgroundColor: colorRed),
-                    child: const Text(
-                      'Book',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
+            child: type == 'movies'
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        print('Book Tickets Pressed => $subtitle => Index :: $index');
+                      },
+                      style:
+                          ElevatedButton.styleFrom(backgroundColor: colorRed),
+                      child: const Text(
+                        'Book Tickets',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('\$299 onwards'),
+                      SizedBox(
+                        height: 40,
+                        width: size.width / 2.2,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            print(
+                                'Book Pressed => $subtitle => Index :: $index');
+                          },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: colorRed),
+                          child: const Text(
+                            'Book',
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
           ),
         ),
       ),
