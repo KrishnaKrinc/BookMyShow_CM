@@ -90,10 +90,33 @@ class BookingPage extends StatelessWidget {
                   pinned: true,
                 ),
                 SliverList(
-                  delegate: SliverChildListDelegate([
-                    Text(data[index]['$title']),
-                    SizedBox(height: 10000,),
-                  ]),
+                  delegate: SliverChildListDelegate(
+                    [
+                      SizedBox(
+                        width: size.width,
+                        height: size.height,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 15,
+                            right: 15,
+                            top: 15,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                data[index]['$title'],
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w700),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
