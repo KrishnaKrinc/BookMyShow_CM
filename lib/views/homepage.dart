@@ -103,6 +103,7 @@ class _HomePageState extends State<HomePage> {
       _popularEvents = data["PopularEvents"];
       _topGamesEvents = data["TopGamesEvents"];
       _funActivities = data["FunActivities"];
+      _buzz = data["Buzz"];
     });
 
     // Loader with Timer (For Delay)
@@ -228,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(8),
                               image: const DecorationImage(
                                 image: NetworkImage(
-                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                                  'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-480:w-600:q-80/stream_hp_banner-collection-202210130606.jpg',
                                 ),
                                 fit: BoxFit.fill,
                               ),
@@ -311,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                             physics: const BouncingScrollPhysics(),
                             itemBuilder: (context, index) {
                               return recommendedBuilder(
-                                  _recommendedMovies, index);
+                                  context, _recommendedMovies, index);
                             },
                             itemCount: _recommendedMovies.length,
                           ),
@@ -427,7 +428,7 @@ class _HomePageState extends State<HomePage> {
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: NetworkImage(
-                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120:q-80/stream-leadin-web-collection-202210241242.png',
+                                'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-480:w-600:q-80/stream_hp_banner-collection-202210130606.jpg',
                               ),
                               fit: BoxFit.fill,
                             ),
@@ -441,7 +442,7 @@ class _HomePageState extends State<HomePage> {
                                 children: <Widget>[
                                   CustomInkWell(
                                     onTap: () {
-                                      print(_activeCarouselIndex);
+                                      print('Buy or Rent Index :: $_activeCarouselIndex');
                                     },
                                     child: Container(
                                       color: colorDarkBlue,
@@ -523,6 +524,7 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           color: colorGrey.shade300,
                           child: CustomScrollableListBuilder(
+                            context: context,
                             type: 'Live Events',
                             data: _liveEvents,
                             size: size,
@@ -532,6 +534,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Laughter Therapy Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Laughter Therapy',
                           data: _laughterTherapy,
                           size: size,
@@ -540,6 +543,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Popular Events Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Popular Events',
                           data: _popularEvents,
                           size: size,
@@ -548,6 +552,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Top games and Sports Events Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Top games and Sports Events',
                           data: _topGamesEvents,
                           size: size,
@@ -556,6 +561,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Explore Fun Activities Scrollable List
                         CustomScrollableListBuilder(
+                          context: context,
                           type: 'Explore Fun Activities',
                           data: _funActivities,
                           size: size,
@@ -563,6 +569,39 @@ class _HomePageState extends State<HomePage> {
                         ),
 
                         // Buzz Scrollable Tiles
+                        SizedBox(
+                          width: size.width,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'What\'s hot?',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Text(
+                                  'News from the World of Entertainment',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Buzz ListView
+                        const SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: buzzBuilder(_buzz, size),
+                        ),
+                        const SizedBox(height: 15),
                       ],
                     ),
                   ),

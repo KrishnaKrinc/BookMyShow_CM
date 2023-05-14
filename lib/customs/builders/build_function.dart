@@ -1,6 +1,7 @@
 import 'package:book_my_show/controllers/location_controller.dart';
 import 'package:book_my_show/customs/custom_widgets/custom_inkwell.dart';
 import 'package:book_my_show/utils/constants.dart';
+import 'package:book_my_show/views/bookingpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,8 +40,10 @@ Widget buildLoader(Size size, Color color) {
   );
 }
 
+
+// Home Screen Custom Functions
 // Recommended Movies List Builder
-Widget recommendedBuilder(data, index) {
+Widget recommendedBuilder(BuildContext context, data, index) {
   double left = index == 0 ? 15 : 10;
   return Padding(
     padding: EdgeInsets.only(left: left),
@@ -49,6 +52,16 @@ Widget recommendedBuilder(data, index) {
         CustomInkWell(
           onTap: () {
             print('Recommnended Movies Index ::  $index');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => BookingPage(
+                  data: data,
+                  index: index,
+                  title: 'mName',
+                  type: 'movies',
+                ),
+              ),
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +72,7 @@ Widget recommendedBuilder(data, index) {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   image: DecorationImage(
-                    image: NetworkImage(data[index]['imagePath']),
+                    image: NetworkImage(data[index]['url']),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -122,7 +135,7 @@ Widget recommendedBuilder(data, index) {
 }
 
 // Custom Scrollable List Builder
-Widget customScrollableListBuilder(data, index, title) {
+Widget customScrollableListBuilder(context, data, index, title) {
   double left = index == 0 ? 15 : 10;
   return Padding(
     padding: EdgeInsets.only(left: left),
@@ -131,6 +144,17 @@ Widget customScrollableListBuilder(data, index, title) {
         CustomInkWell(
           onTap: () {
             print('$title Index ::  $index');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => BookingPage(
+                  data: data,
+                  index: index,
+                  title: 'showName',
+                  type: 'shows',
+                  subtitle: title,
+                ),
+              ),
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,7 +173,7 @@ Widget customScrollableListBuilder(data, index, title) {
               const SizedBox(height: 8),
               Container(
                 height: 25,
-                width: 145,
+                width: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.0),
                   color: colorGrey.shade300,
@@ -239,7 +263,7 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
-                  image: NetworkImage(e['imagePath']),
+                  image: NetworkImage(e['url']),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -325,6 +349,71 @@ Widget customCarouselSlider(e, size, margin, activeCarouselIndex) {
         ),
       ),
     ],
+  );
+}
+
+// Buzz Builder
+Widget buzzBuilder(data, size) {
+  return SizedBox(
+    height: size.height * 0.18,
+    child: ListView.separated(
+      physics: const BouncingScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      itemBuilder: (BuildContext context, index) {
+        return Container(
+          height: 180,
+          width: size.width * 0.80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: colorDarkBlue,
+          ),
+          child: Card(
+            margin: const EdgeInsets.all(8.0),
+            color: colorDarkBlue,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 90,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        data[index]['url'],
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.only(
+                    left: 8.0,
+                    right: 8.0,
+                  ),
+                  width: size.width * 0.50,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      maxLines: 5,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
+                      data[index]['otherInfo'] as String,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+      itemCount: data.length,
+      separatorBuilder: (context, index) => const SizedBox(width: 8.0),
+    ),
   );
 }
 
@@ -482,3 +571,6 @@ Widget gridBuilder(
     },
   );
 }
+
+
+//Booking Screen Custom Functions

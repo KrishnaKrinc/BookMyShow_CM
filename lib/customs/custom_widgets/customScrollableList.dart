@@ -4,12 +4,13 @@ import 'package:book_my_show/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomScrollableListBuilder extends StatelessWidget {
+  final context;
   final data;
   final type;
   final size;
   final title;
   const CustomScrollableListBuilder(
-      {super.key, this.data, this.type, this.size, this.title});
+      {super.key, this.data, this.type, this.size, this.title, this.context});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              // Recommended Text
+              // Title Text
               Text(
                 title,
                 style: const TextStyle(
@@ -80,7 +81,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
         ),
         const SizedBox(height: 15),
 
-        // Movies List - Scrollable - row
+        // Card List - Scrollable - row
         SizedBox(
           height: 330,
           width: size.width,
@@ -88,7 +89,7 @@ class CustomScrollableListBuilder extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              return customScrollableListBuilder(data, index, title);
+              return customScrollableListBuilder(context, data, index, title);
             },
             itemCount: data.length,
           ),

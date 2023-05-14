@@ -1,7 +1,7 @@
 {
     "RecommendedMovies": [
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-legend-et00330638-1658906682.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-legend-et00330638-1658906682.jpg",
             "mName": "Test1",
             "time": "3h 0m",
             "genre": "Action",
@@ -12,7 +12,7 @@
             "Votes": 23900
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-super-mario-bros-movie-et00343051-1677046141.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-super-mario-bros-movie-et00343051-1677046141.jpg",
             "mName": "Test2",
             "time": "2h 30m",
             "genre": "Thriller",
@@ -23,7 +23,7 @@
             "Votes": 2087
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/kgf-et00042769-15-12-2020-08-08-47.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/kgf-et00042769-15-12-2020-08-08-47.jpg",
             "mName": "Test3",
             "time": "2h 20m",
             "genre": "Romance",
@@ -34,7 +34,7 @@
             "Votes": 25789
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/august-16-1947-et00354141-1677843675.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/august-16-1947-et00354141-1677843675.jpg",
             "mName": "Test4",
             "time": "1h 49m",
             "genre": "Comedy",
@@ -45,7 +45,7 @@
             "Votes": 5600
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pathu-thala-et00333005-1672646997.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pathu-thala-et00333005-1672646997.jpg",
             "mName": "Test5",
             "time": "2h 20m",
             "genre": "Sci-Fi",
@@ -56,7 +56,7 @@
             "Votes": 5900
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/viduthalai-part--1-et00310832-1679481437.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/viduthalai-part--1-et00310832-1679481437.jpg",
             "mName": "Test6",
             "time": "2h 20m",
             "genre": "Sci-Fi",
@@ -67,7 +67,7 @@
             "Votes": 2701
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pathaan-et00323848-1674372556.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pathaan-et00323848-1674372556.jpg",
             "mName": "Test7",
             "time": "2h 20m",
             "genre": "Romance",
@@ -78,7 +78,7 @@
             "Votes": 25789
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/thiruvin-kural-et00357071-1681198209.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/thiruvin-kural-et00357071-1681198209.jpg",
             "mName": "Test8",
             "time": "1h 49m",
             "genre": "Comedy",
@@ -89,7 +89,7 @@
             "Votes": 5600
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/rudhran-et00333202-1664437269.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/rudhran-et00333202-1664437269.jpg",
             "mName": "Test9",
             "time": "2h 20m",
             "genre": "Sci-Fi",
@@ -100,7 +100,7 @@
             "Votes": 5900
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/soppana-sundari-et00355707-1680169783.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/soppana-sundari-et00355707-1680169783.jpg",
             "mName": "Test10",
             "time": "2h 20m",
             "genre": "Sci-Fi",
@@ -113,7 +113,7 @@
     ],
     "BuyorRent": [
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-legend-et00330638-1658906682.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-legend-et00330638-1658906682.jpg",
             "mName": "Test1",
             "time": "3h 0m",
             "genre": "Action",
@@ -124,7 +124,7 @@
             "Votes": 23900
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-super-mario-bros-movie-et00343051-1677046141.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-super-mario-bros-movie-et00343051-1677046141.jpg",
             "mName": "Test2",
             "time": "2h 30m",
             "genre": "Thriller",
@@ -135,7 +135,7 @@
             "Votes": 2087
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/kgf-et00042769-15-12-2020-08-08-47.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/kgf-et00042769-15-12-2020-08-08-47.jpg",
             "mName": "Test3",
             "time": "2h 20m",
             "genre": "Romance",
@@ -146,7 +146,7 @@
             "Votes": 25789
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/august-16-1947-et00354141-1677843675.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/august-16-1947-et00354141-1677843675.jpg",
             "mName": "Test4",
             "time": "1h 49m",
             "genre": "Comedy",
@@ -157,7 +157,7 @@
             "Votes": 5600
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pathu-thala-et00333005-1672646997.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pathu-thala-et00333005-1672646997.jpg",
             "mName": "Test5",
             "time": "2h 20m",
             "genre": "Sci-Fi",
@@ -168,7 +168,7 @@
             "Votes": 5900
         },
         {
-            "imagePath": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/viduthalai-part--1-et00310832-1679481437.jpg",
+            "url": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/viduthalai-part--1-et00310832-1679481437.jpg",
             "mName": "Test6",
             "time": "2h 20m",
             "genre": "Sci-Fi",
