@@ -51,6 +51,7 @@ class BookingPage extends StatelessWidget {
                 statusBarIconBrightness: Brightness.light,
                 statusBarBrightness: Brightness.dark,
               ),
+              backgroundColor: colorDarkBlue,
               toolbarHeight: 0,
               elevation: 0,
             ),
@@ -105,11 +106,30 @@ class BookingPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Container(
+                                width: subtitle.length * 8.0,
+                                height: 25,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(3),
+                                  color: Colors.black,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    subtitle,
+                                    style: const TextStyle(
+                                      color: colorWhite,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 5),
                               Text(
                                 data[index]['$title'],
                                 textAlign: TextAlign.start,
                                 style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w700),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ],
                           ),
